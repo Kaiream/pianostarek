@@ -162,6 +162,8 @@ hr {
 footer {
   padding: 2rem 0;
   background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
 }
 
 /* Responzitiva */
