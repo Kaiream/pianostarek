@@ -1,0 +1,186 @@
+/* Základní reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Tělo stránky */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.2;
+  color: #212529;
+  background-color: #fff;
+}
+
+/* Kontejner */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Navigace */
+nav {
+  padding: 1rem 0;
+}
+
+nav img {
+  max-height: 50px;
+}
+
+/* Hlavní obsah */
+main {
+  margin: 2rem 0;
+}
+
+section {
+  margin-bottom: 4rem;
+}
+
+/* Obrázky */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Typografie */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* Odkazy */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* Tlačítka */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #212529;
+  color: #fff;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: #343a40;
+}
+
+/* Mříža produktů */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.product {
+  border: 1px solid #dee2e6;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.product img {
+  margin-bottom: 1rem;
+}
+
+/* Úvodní sekce */
+.hero {
+  position: relative;
+  margin-bottom: 4rem;
+}
+
+.hero-content {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+/* Video sekce */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio? */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Karty */
+.card {
+  border: 1px solid #dee2e6;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+/* Ikony */
+svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Mřížka značek */
+.brands {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.brands img {
+  max-width: 100px;
+  margin: 0 auto;
+}
+
+/* Oddělovač */
+hr {
+  border: none;
+  border-top: 1px solid #dee2e6;
+  margin: 2rem 0;
+}
+
+/* Zápatí */
+footer {
+  padding: 2rem 0;
+  background-color: #f8f9fa;
+}
+
+/* Responzitiva */
+@media (max-width: 768px) {
+  .products {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+  
+  .products {
+    grid-template-columns: 1fr;
+  }
+}
