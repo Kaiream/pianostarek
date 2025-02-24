@@ -1,13 +1,21 @@
 ---
-const { title="Piano Stárek" } = Astro.props;
+const { title, description, additionalDeclarations } = Astro.props;
+// import { ClientRouter } from 'astro:transitions';
 ---
 <head>
-  <meta charset="utf-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="viewport" content="width=device-width" />
-  <meta name="generator" content={Astro.generator} />
-  <meta property="og:url" content="aaaaaaa">
-  <meta property="og:title" content="Piano Stárek">
-  <meta property="og:type" content="website">
+  <!-- META -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="content-language" content="cs-CZ">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+
+  <!-- LINKS -->
+  <link rel="canonical" href="https://pianostarek.cz/">
+  <link rel="icon" href="/favicon.ico" sizes="any" />
   <title>{title}</title>
+
+  <!-- ADDITIONAL HEAD DECLARATIONS -->
+  {additionalDeclarations && <Fragment set:html={additionalDeclarations} />}
+
+  <!-- SCRIPTS -->
 </head>

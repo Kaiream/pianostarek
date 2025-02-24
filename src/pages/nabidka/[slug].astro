@@ -1,0 +1,101 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import ProductPage from "../../layouts/ProductPage.astro";
+import { generateSlug } from "../../content/config";
+import { Image } from "astro:assets";
+
+export async function getStaticPaths() {
+  const products = await getCollection("nabidka");
+  return products.map((product: CollectionEntry<"nabidka">) => ({
+    params: { slug: generateSlug(product.data.model, product.data.id) },
+    props: { product },
+  }));
+}
+
+interface Props {
+  product: CollectionEntry<"nabidka">;
+}
+
+const { product } = Astro.props as Props;
+const { Content } = await product.render();
+
+// ?? replace later
+import placeholder1 from "../../../src/assets/ph1.jpg";
+---
+
+<ProductPage frontmatter={product.data} backPath="/nabidka" backText="Zpět na nabídku">
+  <Content slot="content"/>
+
+  <!-- RELATED PRODUCTS -->
+  <section slot="related" class="section-related-products">
+    <div class="related-products-container">
+      <h2 class="heading-2">Související produkty</h2>
+      <hr class="__separator separator-heading" />
+      <div class="products-horizon">
+        <a href="/nabidka/inzerat" class="product-card">
+          <figure class="product-body">
+            <Image
+            src={placeholder1}
+            class="__image product-image"
+            alt="Obrázek produktu"
+            quality={100}
+            format="webp"
+            loading="lazy"
+            />
+            <figcaption class="product-description">
+              <span class="product-name">
+                Název produktu
+              </span>
+              <span class="product-price">
+                9 999 Kč
+              </span>
+            </figcaption>
+          </figure>
+        </a>
+        <a href="/nabidka/inzerat" class="product-card">
+          <figure class="product-body">
+            <Image
+            src={placeholder1}
+            class="__image product-image"
+            alt="Obrázek produktu"
+            quality={100}
+            format="webp"
+            loading="lazy"
+            />
+            <figcaption class="product-description">
+              <span class="product-name">
+                Název produktu
+              </span>
+              <span class="product-price">
+                9 999 Kč
+              </span>
+            </figcaption>
+          </figure>
+        </a>
+        <a href="/nabidka/inzerat" class="product-card">
+          <figure class="product-body">
+            <Image
+            src={placeholder1}
+            class="__image product-image"
+            alt="Obrázek produktu"
+            quality={100}
+            format="webp"
+            loading="lazy"
+            />
+            <figcaption class="product-description">
+              <span class="product-name">
+                Název produktu
+              </span>
+              <span class="product-price">
+                9 999 Kč
+              </span>
+            </figcaption>
+          </figure>
+        </a>
+      </div>
+      <a href="nabidka.html" class="button-link">
+        Zobrazit celou nabídku
+      </a>
+    </div>
+  </section>
+</ProductPage>

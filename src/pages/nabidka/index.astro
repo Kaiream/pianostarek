@@ -1,0 +1,335 @@
+---
+import Hero from "../../components/Hero.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+import FilterOverlay from "../../components/FilterOverlay.astro";
+import { formatPrice } from "../../utils/price-format";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { generateSlug } from "../../content/config";
+import { Image } from "astro:assets";
+import hero from "../../../src/assets/nabidka.jpg";
+
+const { title="Nabídka", description="Naše aktuální nabídka nástrojů." } = Astro.props;
+
+// db pull
+const productDatabase = await getCollection("nabidka");
+
+// URL pull
+const searchQuery = Astro.url.searchParams.get("vyhledat") || '';
+---
+
+<MainLayout {title} {description}>
+  
+  <!-- MAIN -->
+  <main class="main" role="main" aria-label={title}>
+
+    <!-- HERO -->
+    <Hero
+      heroTitle="NABÍDKA"
+      backgroundImage={hero}>
+    </Hero>
+
+    <!-- AVAILABLE PRODUCTS -->
+    <section class="section-product-display">
+      <div class="product-display-container">
+
+        <!-- FILTRATION PROTOCOL -->
+        <div class="filtration-protocol">
+          <div class="filter-text">
+            <span>
+              Filtrování
+              <span class="product-count-indicator" title="Počet produktů">
+                (0)
+              </span>
+            </span>
+            <div class="filter-reset" title="Resetovat Filtry">
+              <a href="/nabidka">
+                <div class="reset-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2v2a8 8 0 1 0 5.135 1.865L15 8V2h6l-2.447 2.447A9.98 9.98 0 0 1 22 12" />
+                  </svg>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- PRICE FILTERS -->
+          <div class="filter-container">
+            <div class="filter-price">
+              <span class="filter-label">
+                Cena
+              </span>
+              <article class="price-range">
+                <input placeholder="Od" id="od" class="__text-input price-from-to" type="number" name="od" />
+                <span class="price-range-separator">
+                  -
+                </span>
+                <input placeholder="Do" id="do" class="__text-input price-from-to" type="number" name="do" />
+              </article>
+            </div>
+
+            <!-- CATEGORY FILTERS -->
+
+            <!-- KONSTRUKCE -->
+            <div class="filter-by-category">
+              <span class="filter-label">Kategorie</span>
+              <div class="filter-body">
+                <button type="button" class="__button collapse-button">
+                  Dle konstrukce
+                </button>
+                <div class="collapse-body">
+                  <label class="checkbox-label">
+                    <input class="__checkbox" type="checkbox" />
+                    <span>
+                      Křídlo
+                      <br />
+                    </span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input class="__checkbox" type="checkbox" />
+                    <span>
+                      Pianino
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- STAV -->
+              <div class="filter-body">
+                <button type="button" class="__button collapse-button">
+                  Stav
+                </button>
+                <div class="collapse-body">
+                  <label class="checkbox-label">
+                    <input class="__checkbox" type="checkbox" />
+                    <span>
+                      Nové
+                      <br />
+                    </span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input class="__checkbox" type="checkbox" />
+                    <span>
+                      Renovované
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- ZNAČKY -->
+              <div class="filter-body">
+                <button type="button" class="__button collapse-button">
+                  Značky
+                </button>
+                <div class="collapse-body">
+                  <label class="checkbox-label">
+                    <input class="__checkbox" type="checkbox" />
+                    <span>
+                      Petrof
+                    </span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input class="__checkbox" type="checkbox" />
+                    <span>
+                      August Förster
+                    </span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input class="__checkbox" type="checkbox" />
+                    <span>
+                      Kawai
+                    </span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input class="__checkbox" type="checkbox" />
+                    <span>
+                      Yamaha
+                    </span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input class="__checkbox" type="checkbox" />
+                    <span>
+                      Rösler
+                    </span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input class="__checkbox" type="checkbox" />
+                    <span>
+                      Samick
+                    </span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input class="__checkbox" type="checkbox" />
+                    <span>
+                      Pearl River
+                    </span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input class="__checkbox" type="checkbox" />
+                    <span>
+                      Scholze
+                    </span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input class="__checkbox" type="checkbox" />
+                    <span>
+                      Weinbach
+                    </span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input class="__checkbox" type="checkbox" />
+                    <span>
+                      Hellas
+                    </span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input class="__checkbox" type="checkbox" />
+                    <span>
+                      Ostatní
+                    </span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- PROVEDENÍ -->
+              <div class="filter-body">
+                <button type="button" class="__button collapse-button">
+                  Provedení
+                </button>
+                <div class="collapse-body">
+                  <label class="checkbox-label">
+                    <input class="__checkbox" type="checkbox" />
+                    <span>
+                      Černé
+                    </span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input class="__checkbox" type="checkbox" />
+                    <span>
+                      Bílé
+                    </span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input class="__checkbox" type="checkbox" />
+                    <span>
+                      Hnědé
+                    </span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input class="__checkbox" type="checkbox" />
+                    <span>
+                      Dub
+                    </span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input class="__checkbox" type="checkbox" />
+                    <span>
+                      Ořech
+                    </span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input class="__checkbox" type="checkbox" />
+                    <span>
+                      Exotické dřevo
+                    </span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input class="__checkbox" type="checkbox" />
+                    <span>
+                      Kombinace
+                    </span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input class="__checkbox" type="checkbox" />
+                    <span>
+                      Barevné
+                    </span>
+                  </label>
+                  <label class="checkbox-label">
+                    <input class="__checkbox" type="checkbox" />
+                    <span>
+                      Ostatní
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRODUCT DISPLAY -->
+        <div class="product-display">
+
+          <!-- SEARCH AND SORT -->
+          <div class="search-sort-container">
+            <div class="search-sort-field">
+              <input placeholder="Vyhledat v nabídce..." id="vyhledat" class="__text-input search-field" type="search" name="vyhledat" value={searchQuery}/>
+            </div>
+            <button type="button" class="__button filter-button">
+              <span>
+                Filtrovat
+              </span>
+              <div class="filter-icon">
+                <svg width="100%" height="100%" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0 1.98013C0 1.45497 0.210714 0.951312 0.585787 0.579966C0.960859 0.20862 1.46957 0 2 0H22C22.5304 0 23.0391 0.20862 23.4142 0.579966C23.7893 0.951312 24 1.45497 24 1.98013V4.73383C23.9998 5.43399 23.7188 6.10542 23.2187 6.60043L16 13.7474V23.5477C16 23.7952 15.9362 24.0387 15.8144 24.2549C15.6927 24.4711 15.5171 24.6529 15.3045 24.7831C15.0918 24.9132 14.849 24.9874 14.5992 24.9985C14.3495 25.0097 14.101 24.9574 13.8773 24.8467L8.92133 22.3939C8.64449 22.2569 8.41166 22.0462 8.24894 21.7856C8.08621 21.5249 8.00001 21.2245 8 20.9181V13.7474L0.781333 6.60043C0.281202 6.10542 0.000151033 5.43399 0 4.73383V1.98013ZM2.66667 2.64017V4.73383L10.08 12.0735C10.2659 12.2574 10.4134 12.4757 10.5141 12.716C10.6148 12.9563 10.6666 13.2139 10.6667 13.4741V20.3056L13.3333 21.6256V13.4741C13.3333 12.9487 13.544 12.4444 13.92 12.0748L21.3333 4.73251V2.64017H2.66667Z" fill="currentColor" />
+                </svg>
+              </div>
+            </button>
+            <select class="__select offer-sort">
+              <option
+                label="Seřazení: nejnovější"
+                value="a"
+                selected>
+              </option>
+              <option
+                label="Seřazení: nejlevnější"
+                value="b">
+              </option>
+              <option
+                label="Seřazení: nejdražší"
+                value="c">
+              </option>
+            </select>
+          </div>
+
+          <!-- ACTUAL PRODUCT DISPLAY -->
+          <div class="page-divider">
+            <div class="product-cards">
+              {productDatabase.map((product: CollectionEntry<"nabidka">) => (
+                <a href={`/nabidka/${generateSlug(product.data.model, product.data.id)}`} class="product-card" data-id={product.data.id} data-price={product.data.price} data-categories={product.data.categories.join(',')}>
+                  <figure class="product-body-mini">
+                    <Image
+                      src={product.data.coverImage.src}
+                      alt={product.data.coverImage.alt || `Doprovázející obrázek produktu ${product.data.model}`}
+                      class="__image product-image"
+                      quality={100}
+                      format="webp"
+                      loading="lazy"
+                    />
+                    <figcaption class="product-description">
+                      <span class="product-name">
+                        {product.data.model}
+                      </span>
+                      <span class="product-price">
+                        {formatPrice(product.data.price)}
+                      </span>
+                    </figcaption>
+                  </figure>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <FilterOverlay />
+
+  <!-- SCRIPTS -->
+  <script src="../../scripts/filter-buttons.js"></script>
+  <script src="../../scripts/filter-mobile.js"></script>
+  <script src="../../utils/sort-nabidka.js"></script>
+  <script src="../../utils/lookup.js"></script>
+  <script src="../../utils/categories.js"></script>
+
+</MainLayout>

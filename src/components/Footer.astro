@@ -1,6 +1,153 @@
 ---
-
+import { Image } from 'astro:assets';
+import logo from '../../src/assets/logo.png';
+import facebookLogo from '../../src/assets/facebook-logo.webp';
+import instagramLogo from '../../src/assets/instagram-logo.webp';
+import youtubeLogo from '../../src/assets/youtube-logo.webp';
 ---
-<footer>
-  <p>&copy; 2023 Piano Starek. All rights reserved.</p>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <section class="section-footer">
+    <div class="footer-kategorie">
+      <span class="footer-heading">
+        Kategorie
+      </span>
+      <hr class="__separator separator-footer" />
+      <div class="footer-links" aria-label="Kategorie produktů">
+        <a href="/nabidka" class="footer-link">
+          Křídla
+        </a>
+        <a href="/nabidka" class="footer-link">
+          Pianina
+        </a>
+        <a href="/nabidka" class="footer-link">
+          Renovované
+        </a>
+        <a href="/nabidka" class="footer-link">
+          Nové
+        </a>
+        <a href="/nabidka" class="footer-link">
+          Značky
+        </a>
+      </div>
+    </div>
+    <div class="footer-navigace">
+      <span class="footer-heading">
+        Navigace
+      </span>
+      <hr class="__separator separator-footer" />
+      <div class="footer-links" aria-label="Footer navigace">
+        <a href="/" class="footer-link">
+          Domů
+        </a>
+        <a href="/nabidka" class="footer-link">
+          Nabídka
+        </a>
+        <a href="/archiv" class="footer-link">
+          Archív
+        </a>
+        <a href="/sluzby" class="footer-link">
+          Služby
+        </a>
+        <a href="/kontakt" class="footer-link">
+          Kontakt
+        </a>
+        <a href="/showroom" class="footer-link">
+          Showroom
+        </a>
+      </div>
+    </div>
+    <div class="footer-sledovat">
+      <span class="footer-heading follow-us">
+        Sledujte nás
+      </span>
+      <div class="footer-socials" aria-label="Sociální média">
+        <a href="https://www.facebook.com/pages/wwwpianostarekcz/109704172392121" target="_blank" class="social-link">
+          <Image
+          src={facebookLogo}
+          alt="Facebook logo"
+          class="__image social-image"
+          width={32}
+          height={32}
+          quality={80}
+          />
+        </a>
+        <a href="https://www.instagram.com/pianostarek.cz/" target="_blank" class="social-link">
+          <Image
+          src={instagramLogo}
+          alt="Instagram logo"
+          class="__image social-image"
+          width={32}
+          height={32}
+          quality={80}
+          />
+        </a>
+        <a href="https://www.youtube.com/@pianostarek" target="_blank"  class="social-link">
+          <Image
+          src={youtubeLogo}
+          alt="Youtube logo"
+          class="__image social-image"
+          width={32}
+          height={32}
+          quality={80}
+          />
+        </a>
+      </div>
+      <a href="index.html" class="footer-logo-big">
+        <Image
+        src={logo}
+        alt="Piano Stárek logo"
+        class="__image footer-logo"
+        width={720}
+        height={558}
+        format="webp"
+        quality={80}
+        />
+      </a>
+      <div class="copyright">© 2025 Piano Stárek</div>
+    </div>
+    <div class="footer-najit">
+      <span class="footer-heading">Kde nás najdete</span>
+      <hr class="__separator separator-footer" />
+      <div class="footer-info-box" aria-label="Lokace provozoven">
+        <p class="parafooter">
+          <b class="__bold">
+          Showroom:</b><br />
+          Přemyslovská 5,<br />
+          130 00 Praha 3
+        </p>
+        <p class="parafooter">
+          <b class="__bold">
+          Sídlo firmy:</b><br />
+          Podkrušnohorská<br />
+          2058, 436 01, Litvínov
+        </p>
+      </div>
+    </div>
+    <div class="footer-kontakt">
+      <span class="footer-heading">Kontakt</span>
+      <hr class="__separator separator-footer" />
+      <div class="footer-info-box" aria-label="Kontaktní informace">
+        <p class="parafooter">
+          Tel:
+          <a href="tel:+420774359074" class="rich-link">
+            +420 774 359 074
+          </a><br />
+          Mail:
+          <a href="mailto:info@pianostarek.cz" class="rich-link">
+            info@pianostarek.cz
+          </a><br />
+          Web:
+          <a href="https://www.pianostarek.cz/" target="_blank" class="rich-link">
+            www.pianostarek.cz
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+  <small class="bp">
+    Bakalářská práce<br />
+    Karim Boufala
+  </small>
 </footer>

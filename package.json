@@ -9,6 +9,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.3.0"
+    "astro": "^5.3.0",
+    "lite-youtube-embed": "^0.3.3"
+  },
+  "devDependencies": {
+    "gray-matter": "^4.0.3"
   }
 }

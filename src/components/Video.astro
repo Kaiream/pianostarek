@@ -1,0 +1,28 @@
+---
+interface Props {
+  videoId: string;
+  title: string;
+}
+
+const { videoId, title } = Astro.props;
+---
+
+<div class="video-container" data-video-id={videoId}>
+  <lite-youtube 
+    videoid={videoId}
+    playlabel={title}
+    params="controls=1&modestbranding=1"
+  ></lite-youtube>
+</div>
+
+<script>
+  import 'lite-youtube-embed/src/lite-yt-embed.js';
+  import 'lite-youtube-embed/src/lite-yt-embed.css';
+</script>
+
+<style>
+  lite-youtube {
+    min-width: 100% !important;
+    min-height: 100% !important;
+  }
+</style>

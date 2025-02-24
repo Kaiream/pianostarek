@@ -1,10 +1,60 @@
 ---
-
+import { Image } from 'astro:assets';
+import logo from '../../src/assets/logo-bare.png';
 ---
-<nav>
-  <nav>
-    <a href="#">
-      <img alt="" src="./images/logo.jpg">
-    </a>
+
+<!-- NAV -->  
+<header class="nav-header is-nav-active" aria-label="Hlavní navigace" role="navigation">
+  <a href="/" class="nav-logo-link">
+    <Image
+    src={logo}
+    alt="Piano Stárek logo"
+    class="__image logo-link"
+    width={480}
+    height={480}
+    quality={80}
+    format="webp"
+    loading="eager"
+    />
+    <span class="logo-text">pianostarek.cz</span>
+  </a>
+  <nav class="nav-desktop">
+    <ul class="__list nav-list" role="menu">
+      <li>
+        <a href="/nabidka" class="nav-link">Nabídka</a>
+      </li>
+      <li>
+        <a href="/archiv" class="nav-link">Archív</a>
+      </li>
+      <li>
+        <a href="/sluzby" class="nav-link">Služby</a>
+      </li>
+      <li>
+        <a href="/kontakt" class="nav-link">Kontakt</a>
+      </li>
+      <li>
+        <a href="/showroom" class="nav-link">Showroom</a>
+      </li>
+      <li class="nav-search-icon">
+        <div class="search-icon" role="button" aria-label="Vyhledávání" tabindex="0">
+          <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.98249 4.75168e-08C8.40059 0.000205762 6.84139 0.376283 5.43336 1.09724C4.02533 1.8182 2.80877 2.86341 1.88395 4.14673C0.959125 5.43005 0.3525 6.91475 0.114064 8.47848C-0.124373 10.0422 0.012205 11.6402 0.512542 13.1408C1.01288 14.6414 1.86265 16.0017 2.99184 17.1095C4.12102 18.2172 5.4973 19.0409 7.00726 19.5125C8.51721 19.9841 10.1176 20.0901 11.6766 19.8219C13.2356 19.5537 14.7085 18.9189 15.9741 17.9698C16.0494 18.1905 16.174 18.3969 16.3506 18.5722L21.336 23.5573C21.6322 23.8443 22.0295 24.0033 22.4419 23.9999C22.8544 23.9966 23.249 23.8311 23.5405 23.5393C23.832 23.2474 23.9971 22.8527 24 22.4402C24.0029 22.0277 23.8434 21.6307 23.556 21.3348L18.5706 16.3497C18.4017 16.1801 18.196 16.0517 17.9695 15.9745C19.0824 14.4913 19.7601 12.7275 19.9268 10.8808C20.0935 9.03404 19.7426 7.17739 18.9134 5.51889C18.0842 3.86039 16.8094 2.46559 15.232 1.49082C13.6546 0.516044 11.8368 -0.000180831 9.98249 4.75168e-08ZM2.51737 9.98324C2.51737 9.00296 2.71046 8.03228 3.08562 7.12662C3.46077 6.22096 4.01065 5.39805 4.70385 4.70489C5.39705 4.01173 6.22 3.46188 7.12571 3.08675C8.03142 2.71161 9.00215 2.51853 9.98249 2.51853C10.9628 2.51853 11.9336 2.71161 12.8393 3.08675C13.745 3.46188 14.5679 4.01173 15.2611 4.70489C15.9543 5.39805 16.5042 6.22096 16.8794 7.12662C17.2545 8.03228 17.4476 9.00296 17.4476 9.98324C17.4476 11.963 16.6611 13.8617 15.2611 15.2616C13.8611 16.6615 11.9624 17.4479 9.98249 17.4479C8.00261 17.4479 6.10383 16.6615 4.70385 15.2616C3.30387 13.8617 2.51737 11.963 2.51737 9.98324Z" fill="currentColor" />
+          </svg>
+        </div>
+        <form class="nav-search-field" role="search" aria-label="Hledat v nabídce" action="/nabidka" method="get" style="display: none;">
+          <input placeholder="Vyhledat v nabídce..." aria-label="Vyhledat v nabídce" id="vyhledat-nav" class="__text-input search-field" type="search" name="vyhledat" />
+        </form>
+      </li>
+    </ul>
   </nav>
-</nav>
+
+  <!-- HAMBURGER -->
+  <button type="button" class="__button hambutton" role="button" aria-label="Otevřít menu">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22" fill="currentColor" width="100%" height="100%" class="burger-icon">
+        <path fill-rule="evenodd" d="M2 5.998a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Zm0 5.5a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Zm0 5.5a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd" />
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" width="100%" height="100%" class="close-icon">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M12.5 3 3 12.5M3 3l9.5 9.5"></path>
+      </svg>
+  </button>
+</header>

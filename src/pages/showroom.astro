@@ -1,0 +1,252 @@
+---
+import Hero from "../components/Hero.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+const { title="Showroom", description="Přijdtě se podívat do našeho nového showroomu v Praze. V naší provozovně určitě najedete to, co hledáte!" } = Astro.props;
+
+import { Image } from "astro:assets";
+import hero from "../../src/assets/showroom-showcase-8.jpg";
+import showroom from "../../src/assets/showroom-budova.jpg";
+import galleryImage1 from "../../src/assets/showroom-showcase-1.jpg";
+import galleryImage2 from "../../src/assets/showroom-showcase-2.jpg";
+import galleryImage3 from "../../src/assets/showroom-showcase-3.jpg";
+import galleryImage4 from "../../src/assets/showroom-showcase-4.jpg";
+import galleryImage5 from "../../src/assets/showroom-showcase-5.jpg";
+import galleryImage6 from "../../src/assets/showroom-showcase-6.jpg";
+import galleryImage7 from "../../src/assets/showroom-showcase-7.jpg";
+---
+
+<MainLayout title={title} description={description}>
+
+  <!-- MAIN -->
+  <main class="main" role="main" aria-label={title}>
+    
+    <!-- HERO -->
+    <Hero
+    heroTitle="SHOWROOM"
+    backgroundImage={hero}>
+    </Hero>
+
+    <!-- SHOWROOM INTRO -->
+    <section class="section-showroom-intro">
+      <h2 class="heading-2">Showroom Praha</h2>
+      <div class="showroom-intro-container">
+        <div class="showroom-left">
+          <Image
+          src={showroom}
+          class="__image showroom-image"
+          alt="Fotka budovy kde se nachází showroom"
+          width={1200}
+          height={800}
+          quality={80}
+          format="webp"
+          loading="eager"/>
+        </div>
+
+        <article class="showroom-right">
+          <div class="showroom-top">
+            <span class="showroom-opening-hours">Otevírací doby</span>
+            <ul class="__list day-list">
+              <li class="day-opening-hours">
+                <span>
+                  Pondělí
+                </span>
+                <span>
+                  08:00 - 20:00
+                </span>
+              </li>
+              <li class="day-opening-hours">
+                <span>
+                  Úterý
+                </span>
+                <span>
+                  08:00 - 20:00
+                </span>
+              </li>
+              <li class="day-opening-hours">
+                <span>
+                  Středa
+                </span>
+                <span>
+                  08:00 - 20:00
+                </span>
+              </li>
+              <li class="day-opening-hours">
+                <span>
+                  Čtvrtek
+                </span>
+                <span>
+                  08:00 - 20:00
+                </span>
+              </li>
+              <li class="day-opening-hours">
+                <span>
+                  Pátek
+                </span>
+                <span>
+                  08:00 - 20:00
+                </span>
+              </li>
+              <li class="day-opening-hours">
+                <span>
+                  Sobota
+                </span>
+                <span>
+                  08:00 - 20:00
+                </span>
+              </li>
+              <li class="day-opening-hours">
+                <span>
+                  Neděle
+                </span>
+                <span>
+                  08:00 - 20:00
+                </span>
+              </li>
+            </ul>
+          </div>
+          <div class="showroom-bottom">
+            <p class="__paragraph visit-text">
+              Prohlídka je možná po telefonické dohodě.<br />
+              Tel: <a href="tel:+420774359074" class="rich-link">+420 774 359 074</a>
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SHOWROOM MAP -->
+    <section class="section-showroom-map">
+      <div class="showroom-map-container">
+        <div class="showroom-mapbox">
+          <div class="showroom-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2560.4300933954073!2d14.4527975!3d50.0782339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b9538fa469ed3%3A0x583545ffa4a106e7!2sPIANOSTAREK!5e0!3m2!1sen!2scz!4v1739820570748!5m2!1sen!2scz"
+              width="100%"
+              height="100%"
+              style="border: 0"
+              title="Mapa showroomu"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+        <article class="showroom-details">
+          <div class="showroom-top">
+            <span class="showroom-label">
+              Nový větší Showroom - Pianostarek
+            </span>
+            <p class="__paragraph">
+              Přemyslovská 5, 130 00 Praha 3<br />
+              Česká republika
+            </p>
+            <span class="showroom-directions">
+              <b class="__paragraph">
+                Jak se k nám dostanete:
+              </b>
+            </span>
+            <p class="showroom-transport">
+              Nejbližší zastávka MHD je stanice metra Jiřího z Poděbrad
+            </p>
+            <blockquote class="showroom-highlight">
+              POZOR! Showroom je ve dvoře objektu - není výloha
+            </blockquote>
+            <a href="https://maps.google.com/maps?ll=50.078234,14.452798&amp;z=16&amp;t=m&amp;hl=en&amp;gl=CZ&amp;mapclient=embed&amp;cid=6356063413384316647" target="_blank" class="button-red" style="align-self: flex-start;">
+              Zobrazit mapu
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SHOWROOM GALLERY -->
+    <section class="section-showroom-gallery">
+      <div class="showroom-gallery-container">
+        <h2 class="heading-2">Galerie</h2>
+        <div class="showroom-gallery">
+          <Image
+          src={galleryImage1}
+          class="__image gallery-image"
+          alt="Obrázek showroomu v galerii"
+          width={2048}
+          height={1356}
+          quality={80}
+          format="webp"
+          loading="lazy"
+          />
+          <Image
+          src={galleryImage2}
+          class="__image gallery-image"
+          alt="Obrázek showroomu v galerii"
+          width={1280}
+          height={720}
+          quality={80}
+          format="webp"
+          loading="lazy"
+          />
+          <Image
+          src={galleryImage3}
+          class="__image gallery-image"
+          alt="Obrázek showroomu v galerii"
+          width={2048}
+          height={1356}
+          quality={80}
+          format="webp"
+          loading="lazy"
+          />
+          <Image
+          src={galleryImage4}
+          class="__image gallery-image"
+          alt="Obrázek showroomu v galerii"
+          width={2048}
+          height={1096}
+          quality={80}
+          format="webp"
+          loading="lazy"
+          />
+          <Image
+          src={galleryImage5}
+          class="__image gallery-image"
+          alt="Obrázek showroomu v galerii"
+          width={1800}
+          height={1800}
+          quality={80}
+          format="webp"
+          loading="lazy"
+          />
+          <Image
+          src={galleryImage6}
+          class="__image gallery-image"
+          alt="Obrázek showroomu v galerii"
+          width={1848}
+          height={1224}
+          quality={80}
+          format="webp"
+          loading="lazy"
+          />
+          <Image
+          src={galleryImage7}
+          class="__image gallery-image"
+          alt="Obrázek showroomu v galerii"
+          width={1647}
+          height={1827}
+          quality={80}
+          format="webp"
+          loading="lazy"          
+          />
+          <Image
+          src={hero}
+          class="__image gallery-image"
+          alt="Obrázek showroomu v galerii"
+          width={1317}
+          height={640}
+          quality={80}
+          format="webp"
+          loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+  </main>
+
+</MainLayout>

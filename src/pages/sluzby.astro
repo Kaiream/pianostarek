@@ -1,0 +1,367 @@
+---
+import Hero from "../components/Hero.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+const { title="Služby", description="Nabízíme služby jakéhokoli typu. Servis, výkup a prodej, půjčovna, transport, stěhování a další!" } = Astro.props;
+
+import { Image } from "astro:assets";
+import hero from "../../src/assets/sluzby.jpg";
+import servis1 from "../../src/assets/servis1.jpg";
+import servis2 from "../../src/assets/servis2.jpg";
+import vykuprod1 from "../../src/assets/vykuprod1.jpg";
+import vykuprod2 from "../../src/assets/vykuprod2.jpg";
+import pujcovna1 from "../../src/assets/pujcovna1.jpg";
+import pujcovna2 from "../../src/assets/pujcovna2.jpg";
+import trans1 from "../../src/assets/trans1.jpg";
+import trans2 from "../../src/assets/trans2.jpg";
+import doplnky1 from "../../src/assets/dopln1.jpg";
+import doplnky2 from "../../src/assets/dopln2.jpg";
+import Video from "../components/Video.astro";
+---
+
+<MainLayout title={title} description={description}>
+
+  <!-- MAIN -->
+  <main class="main" role="main" aria-label={title}>
+
+    <!-- HERO -->
+    <Hero
+    heroTitle="SLUŽBY"
+    backgroundImage={hero}>
+    </Hero>
+
+    <!-- QUOTE -->
+    <section class="section-quote">
+      <div class="quote-container">
+        <blockquote class="quote">
+          Jsme výkupce a prodejce pian s kompletními službami.<br />
+          Postaráme se o vaše ladění a údržbu pian.<br />
+          Provedeme větší i menší opravy nebo kompletní renovaci klavírů.<br />
+          Máme i odborné stěhováky klavírů.
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section-services">
+      <div class="service-container">
+        <h2 class="heading-2">NAŠE SLUŽBY</h2>
+        <div class="tab-container">
+          <div role="tablist" class="tabs" aria-label="Služby">
+            <button type="button" role="tab" data-state="active" class="__tab-trigger tab-style" aria-label="Servis">
+              Servis
+            </button>
+            <button type="button" role="tab" data-state="inactive" class="__tab-trigger tab-style" aria-label="Výkup a prodej">
+              Výkup a prodej
+            </button>
+            <button type="button" role="tab" data-state="inactive" class="__tab-trigger tab-style" aria-label="Půjčovna">
+              Půjčovna
+            </button>
+            <button type="button" role="tab" data-state="inactive" class="__tab-trigger tab-style" aria-label="Stěhování">
+              Stěhování
+            </button>
+            <button type="button" role="tab" data-state="inactive" class="__tab-trigger tab-style" aria-label="Doplňky">
+              Doplňky
+            </button>
+          </div>
+
+          <!-- SERVIS -->
+          <div data-state="active" role="tabpanel" class="tab-content">
+
+            <aside class="servis-background-text">
+              <div class="big-dumb-text">Servis</div>
+            </aside>
+
+            <ul class="__list service-list">
+              <li>
+                Ladění, regulace a intonace
+              </li>
+              <li>
+                Čištění
+              </li>
+              <li>
+                Dílenské opravy
+              </li>
+              <li>
+                Povrchové úpravy
+              </li>
+              <li>
+                Výměna klávesového obložení
+              </li>
+              <li>
+                Výměna ladících kolíků a strun
+              </li>
+              <li>
+                Opravy rezonančních desek a celých akustických elementů
+              </li>
+            </ul>
+
+            <!-- SERVIS PHOTOS -->
+            <div class="tab-photos">
+              <div class="tab-photo">
+                <Image
+                src={servis1}
+                alt="Fotka servisu"
+                class="__image border-image"
+                width={960}
+                height={826}
+                quality={80}
+                format="webp"
+                loading="lazy"
+                />
+              </div>
+              <div class="tab-photo">
+                <Image
+                src={servis2}
+                alt="Fotka servisu"
+                class="__image border-image"
+                width={960}
+                height={826}
+                quality={80}
+                format="webp"
+                loading="lazy"
+                />
+              </div>
+            </div>
+
+          </div>
+
+          <!-- VÝKUP A PRODEJ -->
+          <div data-state="active" role="tabpanel" class="tab-content">
+
+            <aside class="vykup-background-text">
+              <div class="big-dumb-text">Výkup</div>
+            </aside>
+
+            <aside class="prodej-background-text">
+              <div class="big-dumb-text">Prodej</div>
+            </aside>
+
+            <ul class="__list vykup-list">
+              <li>Vykupujeme klavíry a pianina za nejvyšší možnou cenu</li>
+              <li>Rychlé jednání</li>
+              <li>Platba v hotovosti přímo na místě</li>
+              <li>Odborné odstěhování nástroje</li>
+              <li>Poradenství při koupi, prodeji a transportu</li>
+              <li>Komisní prodej</li>
+            </ul>
+            <p class="paravykup">
+              <span>
+                U všech nástrojů zakoupených u PIANOSTAREK (i po záruční době) v  případě vaší žádosti o prodej zajistíme: transport, stěhování a komisní prodej a to za cenu jen o 1 000 Kč nižší než byla jeho cena pořizovací.<br>
+                (Platí pouze v případě, že nástroj není poškozen a ani jinak  znehodnocen.)
+              </span>
+            </p>
+            <span class="vykup-text">Nástroje je možné zakoupit:</span>
+            <ul class="__list vykup-details">
+              <li>Hotovosti</li>
+              <li>Převodem (před dodáním nástroje)</li>
+              <li>Na splátky</li>
+              <li>Protiúčtem</li>
+            </ul>
+            <span class="vykup-text">Cena za dopravu je 14 Kč/1 km</span>
+            <span class="vykup-text">
+              Na každé pianino a na každý klavír poskytujeme záruku 1-5 let<br>
+              + záruční a pozáruční servis.
+            </span>
+
+            <!-- SERVIS PHOTOS -->
+            <div class="tab-photos">
+              <div class="tab-photo">
+                <Image
+                src={vykuprod1}
+                alt="Fotka servisu"
+                class="__image border-image"
+                width={960}
+                height={826}
+                quality={80}
+                format="webp"
+                loading="lazy"
+                />
+              </div>
+              <div class="tab-photo">
+                <Image
+                src={vykuprod2}
+                alt="Fotka servisu"
+                class="__image border-image"
+                width={960}
+                height={826}
+                quality={80}
+                format="webp"
+                loading="lazy"
+                />
+              </div>
+            </div>
+
+          </div>
+
+          <!-- PŮJČOVNA -->
+          <div data-state="active" role="tabpanel" class="tab-content">
+
+            <aside class="pujcovna-background-text">
+              <div class="big-dumb-text">Půjčovna</div>
+            </aside>
+
+            <ul class="__list pujcovna-list">
+              <li>Krátkodobé i dlouhodobé půjčování klavírů a pianin.</li>
+              <li>Kompletní servis zajištěn (doprava, stěhování, ladění).</li>
+              <li>Půjčovné již od 499 Kč měsíčně.</li>
+              <li>Půjčujeme nástroje po celé ČR a dle dohody i po celé EVROPĚ.</li>
+            </ul>
+            
+            <!-- SERVIS PHOTOS -->
+            <div class="tab-photos">
+              <div class="tab-photo">
+                <Image
+                src={pujcovna1}
+                alt="Fotka servisu"
+                class="__image border-image"
+                width={960}
+                height={826}
+                quality={80}
+                format="webp"
+                loading="lazy"
+                />
+              </div>
+              <div class="tab-photo">
+                <Image
+                src={pujcovna2}
+                alt="Fotka servisu"
+                class="__image border-image"
+                width={960}
+                height={826}
+                quality={80}
+                format="webp"
+                loading="lazy"
+                />
+              </div>
+            </div>
+
+          </div>
+
+          <!-- STĚHOVÁNÍ -->
+          <div data-state="active" role="tabpanel" class="tab-content">
+            <aside class="stehovani-background-text">
+              <div class="big-dumb-text">Stěhování</div>
+            </aside>
+            <ul class="__list stehovani-list">
+              <li>Odborný transport a šetrné stěhování je u nás samozřejmostí.</li>
+            </ul>
+
+            <!-- SERVIS PHOTOS -->
+            <div class="tab-photos">
+              <div class="tab-photo">
+                <Image
+                src={trans1}
+                alt="Fotka servisu"
+                class="__image border-image"
+                width={960}
+                height={826}
+                quality={80}
+                format="webp"
+                loading="lazy"
+                />
+              </div>
+              <div class="tab-photo">
+                <Image
+                src={trans2}
+                alt="Fotka servisu"
+                class="__image border-image"
+                width={960}
+                height={826}
+                quality={80}
+                format="webp"
+                loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- DOPLŇKY -->
+          <div data-state="active" role="tabpanel" class="tab-content">
+            <aside class="doplnky-background-text">
+              <div class="big-dumb-text">Doplňky</div>
+            </aside>
+            <span class="doplnky-text">Zajišťujeme prodej těchto doplňků:</span>
+            <ul class="__list doplnky-list">
+              <li>Židličky</li>
+              <li>Lavice</li>
+              <li>Metronomy</li>
+              <li>Lampičky</li>
+              <li>Svícny</li>
+            </ul>
+
+            <!-- SERVIS PHOTOS -->
+            <div class="tab-photos">
+              <div class="tab-photo">
+                <Image
+                src={doplnky1}
+                alt="Fotka servisu"
+                class="__image border-image"
+                width={960}
+                height={826}
+                quality={80}
+                format="webp"
+                loading="lazy"
+                />
+              </div>
+              <div class="tab-photo">
+                <Image
+                src={doplnky2}
+                alt="Fotka servisu"
+                class="__image border-image"
+                width={960}
+                height={826}
+                quality={80}
+                format="webp"
+                loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PIANO HOUR -->
+    <section class="section-piano-hour">
+      <div class="piano-hour-container">
+        <h2 id="hour" class="heading-2">
+          HODINOVÉ PIANO PRAHA
+        </h2>
+        <div class="piano-hour-video">
+          <Video
+          videoId="Wj261yn3U1Y" 
+          title="Ukázka hodinového piana v Praze"
+          />
+        </div>
+        <div class="piano-hour-details">
+          <span class="piano-hour-intro"
+            >Chcete si zahrát na piano, ale nemáte kde?</span
+          ><span class="piano-hour-eye-catcher">Přijdtě k nám!</span>
+          <p class="parapianohour">
+            Dostanete k dispozici Showroom s cca deseti pianiny.<br />
+            Nikým nerušeni, si budete hrát na jaký nástroj chcete, co chcete a jak dlouho chcete.<br />
+            Káva a voda ZDARMA.
+          </p>
+          <p class="parapianohour">
+            Návštěvu si prosím domluvte předem telefonicky, emailem<br />
+            nebo vyplňte formulář <a href="kontakt.html#contact" class="here">zde</a >.
+          </p>
+          <p class="parapianohour">
+            Tel:
+            <a href="tel:+420774359074" class="rich-link">
+              +420 774 359 074
+            </a><br />
+            Mail:
+            <a href="mailto:info@pianostarek.cz" class="rich-link">
+              info@pianostarek.cz
+            </a>
+          </p>
+          <hr class="__separator separator-heading" />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../scripts/tabs.js"></script>
+
+</MainLayout>

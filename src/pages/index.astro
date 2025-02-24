@@ -1,142 +1,376 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro"
-import "../styles/global.css"
+import Hero from "../components/Hero.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+const { title="Piano Stárek", description="Prodáme či koupíme piano, pianino, křídlo nebo klavír. Nabízíme nové i starší hudební nástroje po jednoduché či kompletní generální opravě. Ladění, výkup, oprava, stěhování, pronájem hudebních nástrojů." } = Astro.props;
+
+import { Image } from "astro:assets";
+import hero from "../../src/assets/main-alt.png";
+import placeholder from "../../src/assets/ph1.jpg";
+import prize from "../../src/assets/cena.png";
+import google from "../../src/assets/google-logo.webp";
+import stars from "../../src/assets/google-stars.png";
+import sluzby from "../../src/assets/sluzby.jpg";
+import showroom from "../../src/assets/showroom-showcase-8.jpg";
+import yamaha from "../../src/assets/yamaha.png";
+import petrof from "../../src/assets/petrof.png";
+import rosler from "../../src/assets/rosler.png";
+import kawai from "../../src/assets/kawai.png";
+import august from "../../src/assets/august.png";
+import hellas from "../../src/assets/hellas.png";
+import samick from "../../src/assets/samick.png";
+import pearlRiver from "../../src/assets/pearl-river.png";
+import scholze from "../../src/assets/scholze.png";
+import weinbach from "../../src/assets/weinbach.png";
+import Video from "../components/Video.astro";
 ---
-<MainLayout>
-  <section class="hero">
-    <div>
-      <img alt="" src="./images/hero.jpg">
-    </div>
-    <div class="hero-content">
-      <h1>Piano Stárek</h1>
-      <a href="#" class="btn">Aktuální nabídka</a>
-    </div>
-  </section>
-  <section>
-    <div class="container">
-      <h1>Doporučujeme</h1>
-      <hr>
-      <div class="products">
-        <section class="product">
-          <div>
-            <img alt="Obrázek produktu" src="./images/product1.jpg">
-            <aside>
-              <span>Název produktu</span>
-              <span>Cena</span>
-            </aside>
-          </div>
-        </section>
-        <section class="product">
-          <div>
-            <img alt="Obrázek produktu" src="./images/product2.jpg">
-            <aside>
-              <span>Název produktu</span>
-              <span>Cena</span>
-            </aside>
-          </div>
-        </section>
-        <section class="product">
-          <div>
-            <img alt="Obrázek produktu" src="./images/product3.jpg">
-            <aside>
-              <span>Název produktu</span>
-              <span>Cena</span>
-            </aside>
-          </div>
-        </section>
-      </div>
-      <a href="#" class="btn">Zobrazit celou nabídku</a>
-    </div>
-  </section>
-  <section>
-    <div class="container">
-      <div class="video-container">
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/placeholder" title="YouTube video player" allowfullscreen></iframe>
-      </div>
-      <div class="card">
-        <div>
-          <h1>HODINOVÉ PIANO PRAHA</h1>
-          <span>Chcete si zahrát na piano, ale nemáte kde?</span>
-          <div>Přijdtě k nám!</div>
+
+<MainLayout {title} {description}>
+  
+  <!-- MAIN -->
+  <main class="main" role="main" aria-label={title}>
+
+    <Hero
+      heroTitle="PIANO STÁREK"
+      backgroundImage={hero}>
+      <a href="/nabidka" class="hero-offer-button">Aktuální nabídka</a>
+    </Hero>
+
+    <!-- PRODUCTS -->
+    <section class="section-products">
+      <div class="container-flex-column">
+        <h2 class="heading-2">Nové zboží</h2>
+        <hr class="__separator separator-heading" />
+        <div class="products-horizon">
+          <a href="/nabidka/inzerat" class="product-card">
+            <figure class="product-body">
+              <Image
+              src={placeholder}
+              class="__image product-image"
+              alt="Obrázek produktu"
+              width={600}
+              height={550}
+              quality={100}
+              format="webp"
+              loading="eager"
+              />
+              <figcaption class="product-description">
+                <span class="product-name">
+                  Název produktu
+                </span>
+                <span class="product-price">
+                  9 999 Kč
+                </span>
+              </figcaption>
+            </figure>
+          </a>
+          <a href="/nabidka/inzerat" class="product-card">
+            <figure class="product-body">
+              <Image
+              src={placeholder}
+              class="__image product-image"
+              alt="Obrázek produktu"
+              width={600}
+              height={550}
+              quality={100}
+              format="webp"
+              loading="eager"
+              />
+              <figcaption class="product-description">
+                <span class="product-name">
+                  Název produktu
+                </span>
+                <span class="product-price">
+                  9 999 Kč
+                </span>
+              </figcaption>
+            </figure>
+          </a>
+          <a href="/nabidka/inzerat" class="product-card">
+            <figure class="product-body">
+              <Image
+              src={placeholder}
+              class="__image product-image"
+              alt="Obrázek produktu"
+              width={600}
+              height={550}
+              quality={100}
+              format="webp"
+              loading="eager"
+              />
+              <figcaption class="product-description">
+                <span class="product-name">
+                  Název produktu
+                </span>
+                <span class="product-price">
+                  9 999 Kč
+                </span>
+              </figcaption>
+            </figure>
+          </a>
         </div>
-        <a href="#" class="btn">MÁM ZÁJEM</a>
-      </div>
-    </div>
-  </section>
-  <section>
-    <div class="container">
-      <h1>Piano Stárek</h1>
-      <hr>
-      <p>Prodáme či koupíme piano, pianino, křídlo nebo klavír.<br>Nabízíme nové i starší hudební nástroje po jednoduché či kompletní generální opravě.<br>Ladění, výkup, oprava, stěhování, pronájem hudebních nástrojů.</p>
-      <div class="products">
-        <a href="#" class="card">
-          <aside>
-            <div>
-              <img alt="Cena hospodářských novin" src="./images/award.jpg">
-            </div>
-            <p>
-              <span>1. místo ŽIVNOSTNÍK ROKU 2010</span>
-              <span>Cena Hospodářských novin</span>
-            </p>
-            <div>
-              <svg viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="40" fill="currentColor"/>
-              </svg>
-            </div>
-          </aside>
+        <a href="/nabidka" class="button-link">
+          Zobrazit celou nabídku
         </a>
-        <a href="#" class="card">
-          <aside>
-            <div>
-              <img alt="Google logo" src="./images/google.jpg">
-            </div>
-            <div>
-              <img alt="Google stars" src="./images/stars.jpg">
-              <p>
-                <span>4.9 </span>
-                <span>Hvězdiček, 14 recenzí</span>
+      </div>
+    </section>
+
+    <!-- HOUR PIANO -->
+    <section class="section-hour-piano">
+      <div class="container-hour-piano">
+        <div class="hour-piano-video">
+          <Video
+          videoId="Wj261yn3U1Y" 
+          title="Ukázka hodinového piana v Praze"
+          />
+        </div>
+        <div class="hour-piano-content">
+          <div class="body-content">
+            <h2 class="heading-alt">HODINOVÉ PIANO PRAHA</h2>
+            <span class="hour-piano-intro">
+              Chcete si zahrát na piano, ale nemáte kde?
+            </span>
+            <span class="hour-piano-eye-catcher">
+              Přijdtě k nám!
+            </span>
+          </div>
+          <a href="/sluzby#hour" class="button-red">
+            MÁM ZÁJEM
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="section-intro">
+      <div class="intro-container">
+        <h2 class="heading-2">Piano Stárek</h2>
+        <hr class="__separator separator-heading"/>
+        <p class="intro-p">
+          Prodáme či koupíme piano, pianino, křídlo nebo klavír. <br />
+          Nabízíme nové i starší hudební nástroje po jednoduché či kompletní generální opravě. <br />
+          Ladění, výkup, oprava, stěhování, pronájem hudebních nástrojů.
+        </p>
+        <div class="reference-box">
+          <a href="https://archiv.hn.cz/c1-48410700-zivnostnik-roku#:~:text=d%C4%9Bl%C3%A1%20bylinn%C3%A9%20tinktury.-,Vlastislav%20St%C3%A1rek,-%C3%9Asteck%C3%BD%20kraj" class="reference-link" target="_blank">
+            <aside class="references">
+              <div class="reference-image-box">
+                <Image
+                src={prize}
+                alt="Cena hospodářských novin"
+                class="__image image-size"
+                width={720}
+                height={720}
+                quality={80}
+                format="webp"/>
+              </div>
+              <p class="cenagraph">
+                <span class="cena-text">
+                  1. místo ŽIVNOSTNÍK ROKU 2010
+                </span>
+                <span class="cena-text">
+                  Cena Hospodářských novin
+                </span>
               </p>
+              <div title="Otevře nové okno" class="redirect-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24">
+                  <path fill="currentColor" d="M10.778 5.5h2.444c.822 0 1.469 0 1.99.043c.53.043.974.133 1.377.338a3.5 3.5 0 0 1 1.53 1.53c.205.403.295.847.338 1.378c.043.52.043 1.168.043 1.989v2.444c0 .822 0 1.469-.043 1.99c-.043.53-.133.974-.338 1.377a3.5 3.5 0 0 1-1.53 1.53c-.403.205-.847.295-1.378.338c-.52.043-1.168.043-1.989.043h-3.6c-1.782 0-2.675-2.154-1.415-3.414l4.836-4.836H10.5a.5.5 0 0 1 0-1h3.75a.5.5 0 0 1 .5.5v3.75a.5.5 0 0 1-1 0v-2.543l-4.836 4.836c-.63.63-.184 1.707.707 1.707H13.2c.848 0 1.455 0 1.93-.04c.469-.038.766-.11 1.005-.233a2.5 2.5 0 0 0 1.092-1.092c.122-.239.195-.536.234-1.005c.039-.476.039-1.082.039-1.93v-2.4c0-.848 0-1.455-.04-1.93c-.038-.469-.11-.766-.233-1.005a2.5 2.5 0 0 0-1.092-1.093c-.239-.121-.536-.194-1.005-.233c-.476-.039-1.082-.039-1.93-.039h-2.4c-.848 0-1.455 0-1.93.04c-.469.038-.766.11-1.005.232a2.5 2.5 0 0 0-1.093 1.093c-.121.239-.194.536-.233 1.005C6.5 9.345 6.5 9.952 6.5 10.8v2.7a.5.5 0 0 1-1 0v-2.722c0-.821 0-1.468.043-1.99c.043-.53.133-.974.338-1.377a3.5 3.5 0 0 1 1.53-1.53c.403-.205.847-.295 1.378-.338c.52-.043 1.168-.043 1.989-.043"/>
+                </svg>
+              </div>
+            </aside>
+          </a>
+          <a href="https://www.google.com/search?sa=X&amp;sca_esv=d9567ae999c402f1&amp;biw=1920&amp;bih=927&amp;tbm=lcl&amp;sxsrf=AHTn8zo1jQGnhuL9seTeXp8M_rU2QkqC-w:1739622037149&amp;q=PIANOSTAREK+Reviews&amp;rflfq=1&amp;num=20&amp;stick=H4sIAAAAAAAAAONgkxI2MzY1MzAzNjE0NrYwMTY0MzMx38DI-IpROMDT0c8_OMQxyNVbISi1LDO1vHgRKzZRAFB7VqhGAAAA&amp;rldimm=6356063413384316647&amp;hl=en-CZ&amp;ved=2ahUKEwjN_MSM1cWLAxXdhv0HHduxHSIQ9fQKegQISBAF#lkt=LocalPoiReviews" class="reference-link" target="_blank">
+            <aside class="references-alt">
+              <div class="reference-image-box">
+                <Image
+                src={google}
+                alt="Google logo"
+                class="__image image-size"
+                width={1200}
+                height={1200}
+                quality={80}/>
+              </div>
+              <div class="reference-google">
+                <Image
+                src={stars}
+                alt="Google recenze hvězdy"
+                class="__image image-stars"
+                width={680}
+                height={130}
+                quality={50}
+                format="webp"/>
+                <p class="googlegraph">
+                  <span class="review-number">
+                    4.9
+                  </span>
+                  <span class="review-details">
+                    Hvězdiček, 14 recenzí
+                  </span>
+                </p>
+              </div>
+              <div title="Otevře nové okno" class="redirect-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" >
+                  <path fill="currentColor" d="M10.778 5.5h2.444c.822 0 1.469 0 1.99.043c.53.043.974.133 1.377.338a3.5 3.5 0 0 1 1.53 1.53c.205.403.295.847.338 1.378c.043.52.043 1.168.043 1.989v2.444c0 .822 0 1.469-.043 1.99c-.043.53-.133.974-.338 1.377a3.5 3.5 0 0 1-1.53 1.53c-.403.205-.847.295-1.378.338c-.52.043-1.168.043-1.989.043h-3.6c-1.782 0-2.675-2.154-1.415-3.414l4.836-4.836H10.5a.5.5 0 0 1 0-1h3.75a.5.5 0 0 1 .5.5v3.75a.5.5 0 0 1-1 0v-2.543l-4.836 4.836c-.63.63-.184 1.707.707 1.707H13.2c.848 0 1.455 0 1.93-.04c.469-.038.766-.11 1.005-.233a2.5 2.5 0 0 0 1.092-1.092c.122-.239.195-.536.234-1.005c.039-.476.039-1.082.039-1.93v-2.4c0-.848 0-1.455-.04-1.93c-.038-.469-.11-.766-.233-1.005a2.5 2.5 0 0 0-1.092-1.093c-.239-.121-.536-.194-1.005-.233c-.476-.039-1.082-.039-1.93-.039h-2.4c-.848 0-1.455 0-1.93.04c-.469.038-.766.11-1.005.232a2.5 2.5 0 0 0-1.093 1.093c-.121.239-.194.536-.233 1.005C6.5 9.345 6.5 9.952 6.5 10.8v2.7a.5.5 0 0 1-1 0v-2.722c0-.821 0-1.468.043-1.99c.043-.53.133-.974.338-1.377a3.5 3.5 0 0 1 1.53-1.53c.403-.205.847-.295 1.378-.338c.52-.043 1.168-.043 1.989-.043"/>
+                </svg>
+              </div>
+            </aside>
+          </a>
+        </div>
+        <div class="cover-images">
+          <a href="sluzby.html" class="cover-link">
+            <Image
+            src={sluzby}
+            alt="Obrázek služeb"
+            class="__image cover-image"
+            width={2048}
+            height={1396}
+            quality={80}
+            format="webp"
+            />
+            <div class="cover-hidden-text">
+              <span class="cover-text">
+                Služby
+              </span>
             </div>
-            <div>
-              <svg viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="40" fill="currentColor"/>
-              </svg>
+          </a>
+          <a href="showroom.html" class="cover-link">
+            <Image
+            src={showroom}
+            alt="Obrázek našeho showroomu v Praze"
+            class="__image cover-image"
+            width={1317}
+            height={640}
+            quality={80}
+            format="webp"
+            />
+            <div class="cover-hidden-text">
+              <span class="cover-text">
+                Showroom
+              </span>
             </div>
-          </aside>
-        </a>
+          </a>
+        </div>
       </div>
-      <div class="products">
-        <a href="#" class="card">
-          <img alt="" src="./images/services.jpg">
-          <div>
-            <span>Služby</span>
-          </div>
-        </a>
-        <a href="#" class="card">
-          <img alt="" src="./images/showroom.jpg">
-          <div>
-            <span>Showroom</span>
-          </div>
-        </a>
+    </section>
+
+    <!-- BRANDS -->
+    <section class="section-brands">
+      <div class="brand-container">
+        <h2 class="heading-2">Naše značky</h2>
+        <hr class="__separator separator-heading" />
+        <div class="logo-set">
+          <a href="/nabidka" class="brand-logo-link">
+            <Image
+            src={yamaha}
+            alt="Yamaha logo" 
+            class="__image brand-image"
+            width={1440}
+            height={600}
+            quality={80}
+            format="webp"
+            />
+          </a>
+          <a href="/nabidka" class="brand-logo-link">
+            <Image
+            src={petrof}
+            alt="Petrof logo"
+            class="__image brand-image"
+            width={562}
+            height={200}
+            quality={80}
+            format="webp"
+            />
+          </a>
+          <a href="/nabidka" class="brand-logo-link">
+            <Image
+            src={rosler}
+            alt="Rösler logo"
+            class="__image brand-image"
+            width={780}
+            height={280}
+            quality={80}
+            format="webp"
+            />
+          </a>
+          <a href="/nabidka" class="brand-logo-link">
+            <Image
+            src={kawai}
+            alt="Kawai logo"
+            class="__image brand-image"
+            width={1850}
+            height={400}
+            quality={80}
+            format="webp"
+            />
+          </a>
+          <a href="/nabidka" class="brand-logo-link">
+            <Image
+            src={august}
+            alt="August Förster logo"
+            class="__image brand-image"
+            width={1024}
+            height={591}
+            quality={80}
+            format="webp"
+            />
+          </a>
+          <a href="/nabidka" class="brand-logo-link">
+            <Image
+            src={hellas}
+            alt="Hellas logo"
+            class="__image brand-image"
+            width={346}
+            height={97}
+            quality={80}
+            format="webp"
+            />
+          </a>
+          <a href="/nabidka" class="brand-logo-link">
+            <Image
+            src={samick}
+            alt="Samick logo"
+            class="__image brand-image"
+            width={1100}
+            height={277}
+            quality={80}
+            format="webp"
+            />
+          </a>
+          <a href="/nabidka" class="brand-logo-link">
+            <Image
+            src={pearlRiver}
+            alt="Pearl River Piano logo"
+            class="__image brand-image"
+            width={650}
+            height={300}
+            quality={80}
+            format="webp"
+            />
+          </a>
+          <a href="/nabidka" class="brand-logo-link">
+            <Image
+            src={scholze}
+            alt="Scholze logo"
+            class="__image brand-image"
+            width={570}
+            height={190}
+            quality={80}
+            format="webp"
+            />
+          </a>
+          <a href="/nabidka" class="brand-logo-link">
+            <Image
+            src={weinbach}
+            alt="Weinbach logo"
+            class="__image brand-image"
+            width={844}
+            height={200}
+            quality={80}
+            format="webp"
+            />
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
-  <section>
-    <div class="container">
-      <h1>Naše značky</h1>
-      <hr>
-      <div class="brands">
-        <div><img alt="Brand logo" src="./images/brand1.jpg"></div>
-        <div><img alt="Brand logo" src="./images/brand2.jpg"></div>
-        <div><img alt="Brand logo" src="./images/brand3.jpg"></div>
-        <div><img alt="Brand logo" src="./images/brand4.jpg"></div>
-        <div><img alt="Brand logo" src="./images/brand5.jpg"></div>
-        <div><img alt="Brand logo" src="./images/brand6.jpg"></div>
-        <div><img alt="Brand logo" src="./images/brand7.jpg"></div>
-        <div><img alt="Brand logo" src="./images/brand8.jpg"></div>
-        <div><img alt="Brand logo" src="./images/brand9.jpg"></div>
-        <div><img alt="Brand logo" src="./images/brand10.jpg"></div>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
+  
 </MainLayout>

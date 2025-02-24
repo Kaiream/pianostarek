@@ -1,0 +1,213 @@
+---
+import Hero from "../components/Hero.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+const { title="Kontakt", description="Máte rozhodnuto? Chcete sjednat nezávislou prohlídku? Spojte se s námi a všechno zařídíme!" } = Astro.props;
+const { additionalDeclarations=`<link rel="preload" href="../../src/assets/grafika1.svg" as="image" />` } = Astro.props;
+
+import { Image } from "astro:assets";
+import hero from "../../src/assets/kontakt.jpg";
+import map from "../../src/assets/mapa-provozoven.png";
+import facebookLogo from "../../src/assets/facebook-logo.webp";
+import instagramLogo from "../../src/assets/instagram-logo.webp";
+import youtubeLogo from "../../src/assets/youtube-logo.webp";
+import mozart from "../../src/assets/kontakt-form.jpg";
+---
+
+<MainLayout title={title} description={description} additionalDeclarations={additionalDeclarations}>
+  
+  <!-- MAIN -->
+  <main role="main" aria-label="Kontaktuje nás">
+
+    <!-- HERO -->
+    <Hero
+    heroTitle="KONTAKT"
+    backgroundImage={hero}>
+    </Hero>
+    
+
+    <!-- SHOPS -->
+    <section class="section-shops">
+      <div class="shops-container">
+        <div class="shops-left">
+          <div class="shops">
+            <div class="shop">
+              <h3 class="heading-3">Sídlo firmy</h3>
+              <p class="paraddress">
+                Podkrušnohorská<br />
+                2058, 436 01, Litvínov
+              </p>
+            </div>
+            <div class="shop">
+              <h3 class="heading-3">Showroom</h3>
+              <p class="paraddress">
+                Přemyslovská 5,<br />
+                130 00 Praha 3
+              </p>
+            </div>
+          </div>
+          <Image
+          src={map}
+          alt="Mapa České republiky"
+          class="__image czech-map"
+          width={2000}
+          height={1140}
+          quality={80}
+          format="webp"
+          loading="eager"
+          />
+        </div>
+
+        <!-- CONTACT INFO -->
+        <div class="shops-right">
+          <h3 class="heading-3">Kontaktní údaje</h3>
+          <p class="paracontact">
+            Tel:
+            <a href="tel:+420774359074" class="rich-link">
+              +420 774 359 074
+            </a><br />
+            Mail:
+            <a href="mailto:info@pianostarek.cz" class="rich-link">
+              info@pianostarek.cz
+            </a><br />
+            Web:
+            <a href="https://www.pianostarek.cz/" class="rich-link">
+              www.pianostarek.cz
+            </a>
+          </p>
+
+          <!-- SOCIALS -->
+          <div class="contact-socials">
+            <a target="_blank" href="https://www.facebook.com/pages/wwwpianostarekcz/109704172392121" class="social-link">
+              <Image
+              src={facebookLogo}
+              alt="Facebook logo"
+              class="__image social-image"
+              width={32}
+              height={32}
+              quality={80}
+              loading="eager"
+              />
+            </a>
+            <a target="_blank" href="https://www.instagram.com/pianostarek.cz/" class="social-link">
+              <Image
+              src={instagramLogo}
+              alt="Instagram logo"
+              class="__image social-image"
+              width={32}
+              height={32}
+              quality={80}
+              loading="eager"
+              />
+            </a>
+            <a target="_blank" href="https://www.youtube.com/@pianostarek" class="social-link">
+              <Image
+              src={youtubeLogo}
+              alt="Youtube logo"
+              class="__image social-image"
+              width={32}
+              height={32}
+              quality={80}
+              loading="eager"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DETAILS -->
+    <section class="section-details">
+      <article class="details-container">
+        <h2 class="heading-3">Dodatečné informace</h2>
+        <div class="details-body">
+
+          <!-- LEFT -->
+          <div class="details-left">
+            <span class="detail-heading">Prodejní sklad Litvínov</span>
+            <p class="__paragraph">
+              Lze navštívit po telefonické dohodě.<br />
+              Od 8.00 do 20.00 hodin.
+            </p>
+            <span class="__paragraph front-text">
+              <b>
+                Další užitečné informace:
+              </b>
+            </span>
+            <p class="__paragraph bottom-text">
+              My nezavíráme!<br />
+              Přijďte si vybrat Vaše vysněné pianino nebo klavír.<br />
+              Volejte 774 35 90 74 a domluvte si prohlídku.
+            </p>
+          </div>
+
+          <!-- RIGHT -->
+          <div class="details-right">
+            <span class="detail-heading">
+              Provozovatel fimy
+            </span>
+            <span class="__paragraph top-text">
+              <b>
+                Vlastislav Stárek
+              </b>
+            </span>
+            <p class="__paragraph bottom-text">
+              Podkrušnohorská 2058<br />
+              436 01 Litvínov<br />
+              Česká republika
+            </p>
+            <p class="left-aligned">
+              „Pokud nechcete vycházet z tepla domova, vyberte si nástroj na našich stránkách a zavolejte nám.<br />
+              O vše se postaráme.”
+            </p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section class="section-form">
+      <div class="form-container">
+        <div class="form-image">
+          <Image
+          src={mozart}
+          alt="Mozart nakupuje u nás"
+          class="__image mozart"
+          width={640}
+          height={360}
+          quality={80}
+          format="webp"
+          loading="lazy"
+          />
+        </div>
+        <div class="contact-form">
+          <h2 id="contact" class="heading-3">Kontaktujte nás</h2>
+          <form class="form">
+            <article class="field-group">
+              <div class="field-wrapper">
+                <input placeholder="Jméno" required="" id="firstname" class="__text-input form-input" type="text" name="firstname" />
+              </div>
+              <div class="field-wrapper">
+                <input placeholder="Příjmení" required="" id="lastname" class="__text-input form-input" type="text" name="lastname"/>
+              </div>
+            </article>
+            <article class="field-wrapper">
+              <input placeholder="Emailová adresa" required="" id="email" class="__text-input form-input" type="email" name="email" />
+            </article>
+            <article class="field-wrapper">
+              <textarea placeholder="Vaše zpráva" name="message" required="" id="message" class="__text-input message"></textarea>
+            </article>
+            <button type="submit" class="__button button-send">
+              <span>Odeslat</span>
+              <div class="send-icon">
+                <svg width="100%" height="100%" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2.0446 13.9995L1.02182 4.77392C0.728864 2.13369 3.44163 0.194234 5.83773 1.33279L26.0632 10.9333C28.6456 12.1584 28.6456 15.8405 26.0632 17.0656L5.83773 26.6679C3.44163 27.8047 0.728864 25.867 1.02182 23.2267L2.0446 13.9995ZM2.0446 13.9995H13.8981" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+</MainLayout>

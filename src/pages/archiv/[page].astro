@@ -1,0 +1,114 @@
+---
+import Hero from "../../components/Hero.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+import { formatPrice } from "../../utils/price-format";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { generateSlug } from "../../content/config";
+import { Image } from "astro:assets";
+import hero from "../../../src/assets/archiv.jpg";
+import Pagination from "../../components/Pagination.astro";
+
+const { title="Archív", description="Prohlédněte si nástroje s novými spokojenými zákazníky." } = Astro.props;
+
+// db pull
+const productDatabase = await getCollection("archiv");
+
+// Pagination start
+// https://docs.astro.build/en/guides/routing/#pagination
+const { page } = Astro.params;
+const currentPage = parseInt(page);
+
+
+
+// ID sort from highest to lowest 
+const sortedProducts = productDatabase.sort((a, b) => b.data.id - a.data.id);
+
+// Max 12 on archive
+const productsPerPage = 12;
+const totalProducts = sortedProducts.length;
+const totalPages = Math.ceil(totalProducts / productsPerPage);
+
+if (currentPage < 1 || currentPage > totalPages) {
+  return Astro.redirect("/404");
+}
+
+// Getting current page
+const startIndex = (currentPage - 1) * productsPerPage;
+const endIndex = startIndex + productsPerPage;
+const currentProducts = sortedProducts.slice(startIndex, endIndex);
+
+export async function getStaticPaths() {
+  const productDatabase = await getCollection("archiv");
+  const totalPages = Math.ceil(productDatabase.length / 12);
+  
+  return Array.from({ length: totalPages }, (_, i) => ({
+    params: { page: (i + 1).toString() },
+  }));
+}
+// Pagination end
+---
+
+<MainLayout {title} {description}>
+  <main class="main" role="main" aria-label={title}>
+    <Hero
+      heroTitle="ARCHÍV"
+      backgroundImage={hero}>
+    </Hero>
+
+    <section class="section-archive">
+      <div class="archive-container">
+        <div class="sold-items">
+          <div class="archive-search">
+            <div class="archive-search-sort">
+              <input placeholder="Vyhledat v archívu..." id="vyhledat" class="__text-input search-field" type="search" name="vyhledat" />
+            </div>
+            <select class="__select sold-sort">
+              <!-- 
+              a1 = newest
+              b2 = oldest
+              -->
+              <option label="Seřazení: nejnovější" value="a" selected></option>
+              <option label="Seřazení: nejstarší" value="b"></option>
+            </select>
+          </div>
+
+          <div class="page-divider">
+            <div class="sold-product-cards">
+              {currentProducts.map((product) => (
+                <a href={`/archiv/${generateSlug(product.data.model, product.data.id)}`} class="product-card" data-id={product.data.id}>
+                  <figure class="product-body-mini">
+                    <Image
+                      src={product.data.coverImage.src}
+                      alt={product.data.coverImage.alt || `Doprovázející obrázek produktu ${product.data.model}`}
+                      class="__image product-image"
+                      quality={100}
+                      format="webp"
+                      loading="lazy"
+                    />
+                    <figcaption class="product-description">
+                      <span class="product-name">
+                        {product.data.model}
+                      </span>
+                      <span class="product-price">
+                        {formatPrice(product.data.price)}
+                      </span>
+                    </figcaption>
+                  </figure>
+                </a>
+              ))}
+            </div>
+            
+            <Pagination 
+              currentPage={currentPage}
+              totalPages={totalPages}
+              baseUrl="/archiv/"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../../utils/probe.js"></script>
+  <script src="../../utils/sort-archiv.js"></script>
+</MainLayout>

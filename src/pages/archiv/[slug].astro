@@ -1,0 +1,24 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import ProductPage from "../../layouts/ProductPage.astro";
+import { generateSlug } from "../../content/config";
+
+export async function getStaticPaths() {
+  const products = await getCollection("archiv");
+  return products.map((product: CollectionEntry<"archiv">) => ({
+    params: { slug: generateSlug(product.data.model, product.data.id) },
+    props: { product },
+  }));
+}
+
+interface Props {
+  product: CollectionEntry<"archiv">;
+}
+
+const { product } = Astro.props as Props;
+const { Content } = await product.render();
+---
+
+<ProductPage frontmatter={product.data} backPath="/archiv" backText="Zpět do archívu">
+  <Content slot="content"/>
+</ProductPage>

@@ -1,17 +1,28 @@
 ---
-import Head from '../components/Head.astro';
-import Nav from '../components/Nav.astro';
-import Footer from '../components/Footer.astro';
+import Footer from "../components/Footer.astro";
+import Head from "../components/Head.astro";
+import Nav from "../components/Nav.astro";
+import NavMobile from "../components/NavMobile.astro";
+import Scripts from "../components/Scripts.astro";
+import "../styles/global.css"
+
+const { title, description, additionalDeclarations } = Astro.props;
 ---
-<html>
-  <Head />
-  <body>
+
+<html lang="cs-CZ">
+
+  <Head {title} {description} {additionalDeclarations} />
+
+  <body class="body-main">
+    
     <Nav />
-    <div class="container">
-      <main>
-        <slot />
-      </main>
-    </div>
+
+    <slot />
+
     <Footer />
+
+    <NavMobile />
+
+    <Scripts />
   </body>
 </html>

@@ -1,0 +1,44 @@
+---
+import { getPageRange } from '../utils/pagination';
+
+interface Props {
+  currentPage: number;
+  totalPages: number;
+  baseUrl: string;
+}
+
+const { currentPage, totalPages, baseUrl } = Astro.props;
+const pageRange = getPageRange(currentPage, totalPages);
+---
+
+<nav class="pagination" aria-label="Stránkování">
+  <div class="pagination-container">
+    {currentPage > 1 && (
+      <a href={`${baseUrl}${currentPage - 1}`} class="__button button-link pagination-link">
+        &#10094;
+      </a>
+    )}
+    
+    {pageRange.map((page) => 
+      page === '...' ? (
+        <span class="pagination-ellipsis">...</span>
+      ) : (
+        <a
+          href={`${baseUrl}${page}`}
+          class:list={[
+            '__button button-link pagination-link',
+            { active: page === currentPage }
+          ]}
+        >
+          {page}
+        </a>
+      )
+    )}
+
+    {currentPage < totalPages && (
+      <a href={`${baseUrl}${currentPage + 1}`} class="__button button-link pagination-link">
+        &#10095;
+      </a>
+    )}
+  </div>
+</nav>
