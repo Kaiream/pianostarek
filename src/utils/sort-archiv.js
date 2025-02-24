@@ -18,23 +18,32 @@
 
 document.addEventListener("DOMContentLoaded", function() {
   const sortSelect = document.querySelector(".sold-sort");
-  const container = document.querySelector(".sold-product-cards");
-  if (!sortSelect || !container) return;
+  const allProductsContainer = document.querySelector(".all-products");
+  const visibleContainer = document.querySelector(".sold-product-cards");
+  const paginationContainer = document.querySelector(".pagination");
+  
+  if (!sortSelect || !allProductsContainer || !visibleContainer) return;
+
+  const productsPerPage = 12;
+  const allProducts = Array.from(allProductsContainer.children);
 
   function sortProducts(value = "a") {
-    const items = Array.from(container.children);
-    items.sort((a, b) => {
+    const sortedProducts = Array.from(allProducts);
+    sortedProducts.sort((a, b) => {
       const aId = Number(a.getAttribute("data-id"));
       const bId = Number(b.getAttribute("data-id"));
-      
-      // a for newest first (descending)
-      // b for oldest first (ascending)
       return value === "a" ? bId - aId : aId - bId;
     });
-    
-    // Rest is the same as in sort-nabidka.js
-    container.innerHTML = '';
-    items.forEach(item => container.appendChild(item));
+
+    // Update visible container with first page of sorted results
+    visibleContainer.innerHTML = '';
+    sortedProducts.slice(0, productsPerPage).forEach(item => {
+      visibleContainer.appendChild(item.cloneNode(true));
+    });
+
+    // Update all products container
+    allProductsContainer.innerHTML = '';
+    sortedProducts.forEach(item => allProductsContainer.appendChild(item));
   }
 
   sortSelect.value = "a";

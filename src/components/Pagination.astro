@@ -14,7 +14,7 @@ const pageRange = getPageRange(currentPage, totalPages);
 <nav class="pagination" aria-label="Stránkování">
   <div class="pagination-container">
     {currentPage > 1 && (
-      <a href={`${baseUrl}${currentPage - 1}`} class="__button button-link pagination-link">
+      <a href={`${baseUrl}${currentPage - 1}`} class="__button nav-link pagination-link pagination-left">
         &#10094;
       </a>
     )}
@@ -36,7 +36,7 @@ const pageRange = getPageRange(currentPage, totalPages);
     )}
 
     {currentPage < totalPages && (
-      <a href={`${baseUrl}${currentPage + 1}`} class="__button button-link pagination-link">
+      <a href={`${baseUrl}${currentPage + 1}`} class="__button nav-link pagination-link pagination-right">
         &#10095;
       </a>
     )}

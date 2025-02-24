@@ -1,11 +1,11 @@
 ---
 import Hero from "../components/Hero.astro";
 import MainLayout from "../layouts/MainLayout.astro";
-const { title="Piano Stárek", description="Prodáme či koupíme piano, pianino, křídlo nebo klavír. Nabízíme nové i starší hudební nástroje po jednoduché či kompletní generální opravě. Ladění, výkup, oprava, stěhování, pronájem hudebních nástrojů." } = Astro.props;
-
+import { getCollection, type CollectionEntry } from "astro:content";
+import { formatPrice } from "../utils/price-format";
+import { generateSlug } from "../content/config";
 import { Image } from "astro:assets";
 import hero from "../../src/assets/main-alt.png";
-import placeholder from "../../src/assets/ph1.jpg";
 import prize from "../../src/assets/cena.png";
 import google from "../../src/assets/google-logo.webp";
 import stars from "../../src/assets/google-stars.png";
@@ -22,6 +22,11 @@ import pearlRiver from "../../src/assets/pearl-river.png";
 import scholze from "../../src/assets/scholze.png";
 import weinbach from "../../src/assets/weinbach.png";
 import Video from "../components/Video.astro";
+
+const { title="Piano Stárek", description="Prodáme či koupíme piano, pianino, křídlo nebo klavír. Nabízíme nové i starší hudební nástroje po jednoduché či kompletní generální opravě. Ladění, výkup, oprava, stěhování, pronájem hudebních nástrojů." } = Astro.props;
+
+// db pull
+const productDatabase = await getCollection("nabidka");
 ---
 
 <MainLayout {title} {description}>
@@ -41,72 +46,28 @@ import Video from "../components/Video.astro";
         <h2 class="heading-2">Nové zboží</h2>
         <hr class="__separator separator-heading" />
         <div class="products-horizon">
-          <a href="/nabidka/inzerat" class="product-card">
-            <figure class="product-body">
-              <Image
-              src={placeholder}
-              class="__image product-image"
-              alt="Obrázek produktu"
-              width={600}
-              height={550}
-              quality={100}
-              format="webp"
-              loading="eager"
-              />
-              <figcaption class="product-description">
-                <span class="product-name">
-                  Název produktu
-                </span>
-                <span class="product-price">
-                  9 999 Kč
-                </span>
-              </figcaption>
-            </figure>
-          </a>
-          <a href="/nabidka/inzerat" class="product-card">
-            <figure class="product-body">
-              <Image
-              src={placeholder}
-              class="__image product-image"
-              alt="Obrázek produktu"
-              width={600}
-              height={550}
-              quality={100}
-              format="webp"
-              loading="eager"
-              />
-              <figcaption class="product-description">
-                <span class="product-name">
-                  Název produktu
-                </span>
-                <span class="product-price">
-                  9 999 Kč
-                </span>
-              </figcaption>
-            </figure>
-          </a>
-          <a href="/nabidka/inzerat" class="product-card">
-            <figure class="product-body">
-              <Image
-              src={placeholder}
-              class="__image product-image"
-              alt="Obrázek produktu"
-              width={600}
-              height={550}
-              quality={100}
-              format="webp"
-              loading="eager"
-              />
-              <figcaption class="product-description">
-                <span class="product-name">
-                  Název produktu
-                </span>
-                <span class="product-price">
-                  9 999 Kč
-                </span>
-              </figcaption>
-            </figure>
-          </a>
+          {productDatabase.slice(0, 3).map((product: CollectionEntry<"nabidka">) => (
+            <a href={`/nabidka/${generateSlug(product.data.model, product.data.id)}`} class="product-card" data-id={product.data.id} data-price={product.data.price} data-categories={product.data.categories.join(',')}>
+              <figure class="product-body">
+                <Image
+                  src={product.data.coverImage.src}
+                  alt={product.data.coverImage.alt || `Doprovázející obrázek produktu ${product.data.model}`}
+                  class="__image product-image"
+                  quality={100}
+                  format="webp"
+                  loading="eager"
+                />
+                <figcaption class="product-description">
+                  <span class="product-name">
+                    {product.data.model}
+                  </span>
+                  <span class="product-price">
+                    {formatPrice(product.data.price)}
+                  </span>
+                </figcaption>
+              </figure>
+            </a>
+          ))}
         </div>
         <a href="/nabidka" class="button-link">
           Zobrazit celou nabídku

@@ -42,7 +42,7 @@ const searchQuery = Astro.url.searchParams.get("vyhledat") || '';
               </span>
             </span>
             <div class="filter-reset" title="Resetovat Filtry">
-              <a href="/nabidka">
+              <a href="/nabidka" aria-label="Anulace filtrů">
                 <div class="reset-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24">
                     <path fill="currentColor" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2v2a8 8 0 1 0 5.135 1.865L15 8V2h6l-2.447 2.447A9.98 9.98 0 0 1 22 12" />
@@ -274,7 +274,7 @@ const searchQuery = Astro.url.searchParams.get("vyhledat") || '';
                 </svg>
               </div>
             </button>
-            <select class="__select offer-sort">
+            <select class="__select offer-sort" aria-label="Seřazení produktů">
               <option
                 label="Seřazení: nejnovější"
                 value="a"

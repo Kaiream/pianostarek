@@ -18,8 +18,6 @@ const productDatabase = await getCollection("archiv");
 const { page } = Astro.params;
 const currentPage = parseInt(page);
 
-
-
 // ID sort from highest to lowest 
 const sortedProducts = productDatabase.sort((a, b) => b.data.id - a.data.id);
 
@@ -62,16 +60,50 @@ export async function getStaticPaths() {
             <div class="archive-search-sort">
               <input placeholder="Vyhledat v archívu..." id="vyhledat" class="__text-input search-field" type="search" name="vyhledat" />
             </div>
-            <select class="__select sold-sort">
+            <select class="__select sold-sort" aria-label="Seřazení produktů">
               <!-- 
               a1 = newest
               b2 = oldest
               -->
-              <option label="Seřazení: nejnovější" value="a" selected></option>
-              <option label="Seřazení: nejstarší" value="b"></option>
+              <option
+                label="Seřazení: nejnovější"
+                value="a"
+                selected>
+              </option>
+              <option
+                label="Seřazení: nejstarší"
+                value="b">
+              </option>
             </select>
           </div>
 
+          <!-- Hidden container with all products -->
+          <div class="all-products">
+            {productDatabase.map((product) => (
+              <a href={`/archiv/${generateSlug(product.data.model, product.data.id)}`} class="product-card" data-id={product.data.id}>
+                <figure class="product-body-mini">
+                  <Image
+                    src={product.data.coverImage.src}
+                    alt={product.data.coverImage.alt}
+                    class="__image product-image"
+                    quality={100}
+                    format="webp"
+                    loading="lazy"
+                  />
+                  <figcaption class="product-description">
+                    <span class="product-name">
+                      {product.data.model}
+                    </span>
+                    <span class="product-price">
+                      {formatPrice(product.data.price)}
+                    </span>
+                  </figcaption>
+                </figure>
+              </a>
+            ))}
+          </div>
+
+          <!-- PRODUCT DISPLAY -->
           <div class="page-divider">
             <div class="sold-product-cards">
               {currentProducts.map((product) => (
