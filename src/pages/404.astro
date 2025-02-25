@@ -1,0 +1,26 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+const { title="404 - Stránka nenalezena", description="Tato stránka bohužel neexistuje." } = Astro.props;
+---
+
+<MainLayout {title} {description}>
+  
+  <!-- MAIN -->
+  <main class="main" role="main" aria-label={title}>
+    
+    <!-- 404 CONTENT-->
+    <section class="section-404">
+      <div class="container-404">
+        <h1 class="absolutely-massive-heading">404</h1>
+        <span class="text-not-found">Stránka nenalezena</span>
+        <p class="paragone">
+          Omlouváme se, ale požadovaná stránka neexistuje nebo byla přesunuta.
+        </p>
+        <a href="/" class="__button button-link">Zpět na hlavní stránku</a>
+      </div>
+    </section>
+
+  </main>
+
+</MainLayout>

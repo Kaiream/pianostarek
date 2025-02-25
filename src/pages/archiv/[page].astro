@@ -21,7 +21,7 @@ const currentPage = parseInt(page);
 // ID sort from highest to lowest 
 const sortedProducts = productDatabase.sort((a, b) => b.data.id - a.data.id);
 
-// Max 12 on archive
+// Page max is set to 12
 const productsPerPage = 12;
 const totalProducts = sortedProducts.length;
 const totalPages = Math.ceil(totalProducts / productsPerPage);
@@ -77,32 +77,6 @@ export async function getStaticPaths() {
             </select>
           </div>
 
-          <!-- Hidden container with all products -->
-          <div class="all-products">
-            {productDatabase.map((product) => (
-              <a href={`/archiv/${generateSlug(product.data.model, product.data.id)}`} class="product-card" data-id={product.data.id}>
-                <figure class="product-body-mini">
-                  <Image
-                    src={product.data.coverImage.src}
-                    alt={product.data.coverImage.alt}
-                    class="__image product-image"
-                    quality={100}
-                    format="webp"
-                    loading="lazy"
-                  />
-                  <figcaption class="product-description">
-                    <span class="product-name">
-                      {product.data.model}
-                    </span>
-                    <span class="product-price">
-                      {formatPrice(product.data.price)}
-                    </span>
-                  </figcaption>
-                </figure>
-              </a>
-            ))}
-          </div>
-
           <!-- PRODUCT DISPLAY -->
           <div class="page-divider">
             <div class="sold-product-cards">
@@ -140,7 +114,5 @@ export async function getStaticPaths() {
       </div>
     </section>
   </main>
-
-  <script src="../../utils/probe.js"></script>
-  <script src="../../utils/sort-archiv.js"></script>
+  <script src="../../scripts/product-filter.js"></script>
 </MainLayout>

@@ -19,23 +19,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const mainImage = document.querySelector(".listing-main-image");
     const galleryImages = document.querySelectorAll(".listing-gallery-image");
 
+    // Check if elements exist
     if (!mainImage || !galleryImages.length) return;
 
-    const originalMainSrc = mainImage.src;
-    const originalMainAlt = mainImage.alt;
-
-    // Get all images and add click event listeners
+    // For each image add click event listeners
     galleryImages.forEach(img => {
-        img.addEventListener("click", () => {
-          // Swap on click logic
-          const currentMainSrc = mainImage.src;
-          const currentMainAlt = mainImage.alt;
+      // If the image is clicked, swap it with the main image
+      img.addEventListener("click", () => {
+        // Swap the main image src and alt with the clicked thumbnail
+        const currentMainSrc = mainImage.src;
+        const currentMainAlt = mainImage.alt;
 
-          mainImage.src = img.src;
-          mainImage.alt = img.alt;
+        // Set the main image src and alt to the clicked thumbnail
+        mainImage.src = img.src;
+        mainImage.alt = img.alt;
 
-          img.src = currentMainSrc;
-          img.alt = currentMainAlt;
-        });
+        // Update the clicked thumbnail with the previous main image
+        img.src = currentMainSrc;
+        img.alt = currentMainAlt;
+      });
     });
 });

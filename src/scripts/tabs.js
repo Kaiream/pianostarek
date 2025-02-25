@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
   
-  // Click triger for switching tabs
+  // Click trigger for switching tabs
   tabTriggers.forEach((trigger, index) => {
     trigger.addEventListener("click", () => {
 
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Hide content
       tabContents.forEach(content => content.style.display = "none");
 
-      // The clicked tab is now  active
+      // The clicked tab is now active
       trigger.setAttribute("data-state", "active");
 
       // Display contents of new active tab

@@ -26,24 +26,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
   hambutton.addEventListener("click", function () {
     if (overlay.classList.contains("active")) {
-      // Close
+      // Add the closing class to trigger the animation
       overlay.classList.add("closing");
       overlay.classList.remove("active");
       hambutton.classList.remove("active");
 
-      // Close timeout
+      // Wait for the animation to complete
       setTimeout(function() {
         overlay.classList.remove("closing");
         overlay.style.display = "none";
-      }, 150);
+      }, 150); // This value has to match the CSS animation duration
     } else {
-      // Open
+      // If the overlay doesn't have the active class, add it to show it
       overlay.classList.add("active");
       hambutton.classList.add("active");
       overlay.style.display = "flex";
     }
 
-    // Shadow CSS
+    // Toggle shadow on the navigation header
     if (hambutton.classList.contains("active")) {
       navHeader.classList.add("is-nav-mobile-active");
     } else {

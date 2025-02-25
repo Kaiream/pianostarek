@@ -1,0 +1,32 @@
+---
+---
+<div class="contact-form">
+  <h2 id="contact" class="heading-3">Kontaktujte nás</h2>
+  <form class="form" id="contactForm">
+    <article class="field-group">
+      <div class="field-wrapper">
+        <input placeholder="Jméno" required id="firstName" class="__text-input form-input" type="text" name="firstName" />
+      </div>
+      <div class="field-wrapper">
+        <input placeholder="Příjmení" required id="lastName" class="__text-input form-input" type="text" name="lastName"/>
+      </div>
+    </article>
+    <article class="field-wrapper">
+      <input placeholder="Emailová adresa" required id="email" class="__text-input form-input" type="email" name="email" />
+    </article>
+    <article class="field-wrapper">
+      <textarea placeholder="Vaše zpráva" name="message" required id="message" class="__text-input message"></textarea>
+    </article>
+    <button type="submit" class="__button button-send">
+      <span>Odeslat</span>
+      <div class="send-icon">
+        <svg width="100%" height="100%" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2.0446 13.9995L1.02182 4.77392C0.728864 2.13369 3.44163 0.194234 5.83773 1.33279L26.0632 10.9333C28.6456 12.1584 28.6456 15.8405 26.0632 17.0656L5.83773 26.6679C3.44163 27.8047 0.728864 25.867 1.02182 23.2267L2.0446 13.9995ZM2.0446 13.9995H13.8981" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="spinner"></div>
+    </button>
+  </form>
+</div>
+
+<script src="../scripts/form-submit.js"></script>

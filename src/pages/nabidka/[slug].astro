@@ -22,6 +22,22 @@ const { Content } = await product.render();
 
 // db pull
 const productDatabase = await getCollection("nabidka");
+
+// Filter related products
+const relatedProducts = productDatabase
+  .filter(p => 
+    // Exclude current product
+    p.data.id !== product.data.id && 
+    // Check for matching categories
+    p.data.categories.some(cat => product.data.categories.includes(cat))
+  )
+  // Sort by number of matching categories for most relevant first
+  .sort((a, b) => {
+    const aMatches = a.data.categories.filter(cat => product.data.categories.includes(cat)).length;
+    const bMatches = b.data.categories.filter(cat => product.data.categories.includes(cat)).length;
+    return bMatches - aMatches;
+  })
+  .slice(0, 3);
 ---
 
 <ProductPage frontmatter={product.data} backPath="/nabidka" backText="Zpět na nabídku">
@@ -33,7 +49,7 @@ const productDatabase = await getCollection("nabidka");
       <h2 class="heading-2">Související produkty</h2>
       <hr class="__separator separator-heading" />
       <div class="products-horizon">
-        {productDatabase.slice(0, 3).map((product: CollectionEntry<"nabidka">) => (
+        {relatedProducts.slice(0, 3).map((product: CollectionEntry<"nabidka">) => (
           <a href={`/nabidka/${generateSlug(product.data.model, product.data.id)}`} class="product-card" data-id={product.data.id} data-price={product.data.price} data-categories={product.data.categories.join(',')}>
             <figure class="product-body">
               <Image

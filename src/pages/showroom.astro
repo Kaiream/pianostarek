@@ -1,18 +1,12 @@
 ---
 import Hero from "../components/Hero.astro";
 import MainLayout from "../layouts/MainLayout.astro";
-const { title="Showroom", description="Přijdtě se podívat do našeho nového showroomu v Praze. V naší provozovně určitě najedete to, co hledáte!" } = Astro.props;
-
+import { galleryImages, type GalleryImage } from '../content/showroom-gallery';
 import { Image } from "astro:assets";
 import hero from "../../src/assets/showroom-showcase-8.jpg";
 import showroom from "../../src/assets/showroom-budova.jpg";
-import galleryImage1 from "../../src/assets/showroom-showcase-1.jpg";
-import galleryImage2 from "../../src/assets/showroom-showcase-2.jpg";
-import galleryImage3 from "../../src/assets/showroom-showcase-3.jpg";
-import galleryImage4 from "../../src/assets/showroom-showcase-4.jpg";
-import galleryImage5 from "../../src/assets/showroom-showcase-5.jpg";
-import galleryImage6 from "../../src/assets/showroom-showcase-6.jpg";
-import galleryImage7 from "../../src/assets/showroom-showcase-7.jpg";
+
+const { title="Showroom", description="Přijdtě se podívat do našeho nového showroomu v Praze. V naší provozovně určitě najedete to, co hledáte!" } = Astro.props;
 ---
 
 <MainLayout title={title} description={description}>
@@ -164,86 +158,18 @@ import galleryImage7 from "../../src/assets/showroom-showcase-7.jpg";
       <div class="showroom-gallery-container">
         <h2 class="heading-2">Galerie</h2>
         <div class="showroom-gallery">
-          <Image
-          src={galleryImage1}
-          class="__image gallery-image"
-          alt="Obrázek showroomu v galerii"
-          width={2048}
-          height={1356}
-          quality={80}
-          format="webp"
-          loading="lazy"
-          />
-          <Image
-          src={galleryImage2}
-          class="__image gallery-image"
-          alt="Obrázek showroomu v galerii"
-          width={1280}
-          height={720}
-          quality={80}
-          format="webp"
-          loading="lazy"
-          />
-          <Image
-          src={galleryImage3}
-          class="__image gallery-image"
-          alt="Obrázek showroomu v galerii"
-          width={2048}
-          height={1356}
-          quality={80}
-          format="webp"
-          loading="lazy"
-          />
-          <Image
-          src={galleryImage4}
-          class="__image gallery-image"
-          alt="Obrázek showroomu v galerii"
-          width={2048}
-          height={1096}
-          quality={80}
-          format="webp"
-          loading="lazy"
-          />
-          <Image
-          src={galleryImage5}
-          class="__image gallery-image"
-          alt="Obrázek showroomu v galerii"
-          width={1800}
-          height={1800}
-          quality={80}
-          format="webp"
-          loading="lazy"
-          />
-          <Image
-          src={galleryImage6}
-          class="__image gallery-image"
-          alt="Obrázek showroomu v galerii"
-          width={1848}
-          height={1224}
-          quality={80}
-          format="webp"
-          loading="lazy"
-          />
-          <Image
-          src={galleryImage7}
-          class="__image gallery-image"
-          alt="Obrázek showroomu v galerii"
-          width={1647}
-          height={1827}
-          quality={80}
-          format="webp"
-          loading="lazy"          
-          />
-          <Image
-          src={hero}
-          class="__image gallery-image"
-          alt="Obrázek showroomu v galerii"
-          width={1317}
-          height={640}
-          quality={80}
-          format="webp"
-          loading="lazy"
-          />
+          {galleryImages.map((image: GalleryImage, index: number) => (
+            <Image
+              src={image.src}
+              class="__image gallery-image"
+              alt={`Obrázek showroomu v galerii ${index + 1}`}
+              width={image.width}
+              height={image.height}
+              quality={80}
+              format="webp"
+              loading="lazy"
+            />
+          ))}
         </div>
       </div>
     </section>

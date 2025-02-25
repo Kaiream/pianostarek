@@ -4,14 +4,18 @@ import { formatPrice } from '../utils/price-format';
 import { Image } from 'astro:assets';
 import Breadcrumb from "../components/Breadcrumb.astro";
 const { frontmatter } = Astro.props;
+
+// Destructuring the frontmatter for easier access
+const { title, model, price, coverImage, gallery, details, categories } = frontmatter;
+
 const { description="Inzerát nabízeného produktu", backPath, backText } = Astro.props;
-const formattedPrice = formatPrice(frontmatter.price);
+const formattedPrice = formatPrice(price);
 --- 
 
-<MainLayout title={frontmatter.model} {description}>
+<MainLayout title={model} {description}>
 
   <!-- MAIN -->
-  <main class="main" role="main" aria-label={frontmatter.title}>
+  <main class="main" role="main" aria-label={title}>
 
     <!-- BREADCRUMB -->
     <Breadcrumb {backPath} {backText}/>
@@ -24,19 +28,19 @@ const formattedPrice = formatPrice(frontmatter.price);
         <div class="listing-left">
           <div class="main-image-container">
             <Image
-            src={frontmatter.coverImage.src}
+            src={coverImage.src}
             class="__image listing-main-image"
-            alt={frontmatter.coverImage.alt || `Hlavní obrázek produktu ${frontmatter.model}`}
+            alt={coverImage.alt || `Hlavní obrázek produktu ${model}`}
             quality={100}
             format="webp"
             loading="eager"
             />
           </div>
           <div class="listing-gallery">
-            {frontmatter.gallery.map((image: ImageType) => (
+            {gallery.map((image: any) => (
               <Image
                 src={image.src}
-                alt={image.alt || `Doprovázející obrázek produktu ${frontmatter.model}`}
+                alt={image.alt || `Doprovázející obrázek produktu ${model}`}
                 class="__image listing-gallery-image"
                 quality={100}
                 format="webp"
@@ -50,7 +54,7 @@ const formattedPrice = formatPrice(frontmatter.price);
         <article class="listing-right">
           <div class="leading-text">
             <h1 class="listing-name">
-              {frontmatter.model}
+              {model}
             </h1>
             <h2 class="listing-price">{formattedPrice}</h2>
           </div>
@@ -66,7 +70,7 @@ const formattedPrice = formatPrice(frontmatter.price);
             <span class="description-heading">Detaily<br /></span>
             <hr class="__separator separator-inzerat" />
             <ul class="listing-detail">
-              {frontmatter.details.map((detail: string) => (
+              {details.map((detail: string) => (
                 <li>{detail}</li>
               ))}
             </ul>
@@ -75,9 +79,9 @@ const formattedPrice = formatPrice(frontmatter.price);
           <div class="categories">
             <p class="paracategory">
               Kategorie:
-              {frontmatter.categories.map((category: string, index: number) => [
+              {categories.map((category: string, index: number) => [
                 <a href="/nabidka" class="category-link">{category}</a>,
-                index < frontmatter.categories.length - 1 && ", "
+                index < categories.length - 1 && ", "
               ])}
             </p>
           </div>

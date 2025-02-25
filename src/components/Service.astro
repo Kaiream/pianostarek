@@ -1,0 +1,55 @@
+---
+import { Image } from "astro:assets";
+import type { Service } from "../content/services";
+
+interface Props {
+  service: Service;
+}
+
+const { service } = Astro.props;
+---
+
+<div data-state="active" role="tabpanel" class="tab-content">
+  <aside class={`${service.idPrimary}-background-text`}>
+    <div class="big-dumb-text">{service.titlePrimary}</div>
+  </aside>
+
+  {service.idSecondary && (
+    <aside class={`${service.idSecondary}-background-text`}>
+      <div class="big-dumb-text">{service.titleSecondary}</div>
+    </aside>
+  )}
+
+  {service.paragraphs && (
+    service.paragraphs.map(paragraph => (
+      <p class="paraservice">
+        <span>{paragraph}</span>
+      </p>
+    ))
+  )}
+
+  {service.items && (
+  <ul class="__list service-list">
+    {service.items.map(item => (
+      <li>{item}</li>
+    ))}
+  </ul>
+  )}
+
+  <div class="tab-photos">
+    {service.images.map(img => (
+      <div class="tab-photo">
+        <Image
+          src={img.src}
+          alt={img.alt}
+          class="__image border-image"
+          width={img.width}
+          height={img.height}
+          quality={80}
+          format="webp"
+          loading="lazy"
+        />
+      </div>
+    ))}
+  </div>
+</div>

@@ -19,6 +19,6 @@ const { product } = Astro.props as Props;
 const { Content } = await product.render();
 ---
 
-<ProductPage frontmatter={product.data} backPath="/archiv" backText="Zpět do archívu">
+<ProductPage frontmatter={product.data} backPath="/archiv/1" backText="Zpět do archívu">
   <Content slot="content"/>
 </ProductPage>

@@ -22,12 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let lastScrollY = window.scrollY;
 
   window.addEventListener("scroll", (event) => {
-    // Exit if mobile nav is active
-    if (navHeader.classList.contains("is-nav-mobile-active")) {
-      return;
-    }
 
-    // Continue
     const currentScrollY = window.scrollY;
 
     if (currentScrollY > lastScrollY) {
