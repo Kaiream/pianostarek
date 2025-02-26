@@ -1,5 +1,6 @@
 ---
 const { title, description, additionalDeclarations } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 <head>
   <!-- META -->
@@ -10,7 +11,8 @@ const { title, description, additionalDeclarations } = Astro.props;
   <meta name="generator" content={Astro.generator} />
 
   <!-- LINKS -->
-  <link rel="canonical" href="https://piano-starek.netlify.app/">
+  <link rel="canonical" href={canonicalURL}>
+  <link rel="sitemap" href="/sitemap-index.xml" />
   <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.ico`} sizes="any" />
   <title>{title}</title>
 

@@ -1,9 +1,5 @@
 ---
 import { Image } from 'astro:assets';
-import logo from '../../src/assets/logo.png';
-import facebookLogo from '../../src/assets/facebook-logo.webp';
-import instagramLogo from '../../src/assets/instagram-logo.webp';
-import youtubeLogo from '../../src/assets/youtube-logo.webp';
 ---
 
 <!-- FOOTER -->
@@ -65,7 +61,7 @@ import youtubeLogo from '../../src/assets/youtube-logo.webp';
       <div class="footer-socials" aria-label="Sociální média">
         <a href="https://www.facebook.com/pages/wwwpianostarekcz/109704172392121" target="_blank" class="social-link">
           <Image
-          src={facebookLogo}
+          src={`${import.meta.env.BASE_URL}images/facebook-logo.webp`}
           alt="Facebook logo"
           class="__image social-image"
           width={64}
@@ -76,7 +72,7 @@ import youtubeLogo from '../../src/assets/youtube-logo.webp';
         </a>
         <a href="https://www.instagram.com/pianostarek.cz/" target="_blank" class="social-link">
           <Image
-          src={instagramLogo}
+          src={`${import.meta.env.BASE_URL}images/instagram-logo.webp`}
           alt="Instagram logo"
           class="__image social-image"
           width={64}
@@ -87,7 +83,7 @@ import youtubeLogo from '../../src/assets/youtube-logo.webp';
         </a>
         <a href="https://www.youtube.com/@pianostarek" target="_blank"  class="social-link">
           <Image
-          src={youtubeLogo}
+          src={`${import.meta.env.BASE_URL}images/youtube-logo.webp`}
           alt="Youtube logo"
           class="__image social-image"
           width={64}
@@ -97,9 +93,9 @@ import youtubeLogo from '../../src/assets/youtube-logo.webp';
           />
         </a>
       </div>
-      <a href="index.html" class="footer-logo-big">
+      <a href="/" class="footer-logo-big">
         <Image
-        src={logo}
+        src={`${import.meta.env.BASE_URL}images/logo.webp`}
         alt="Piano Stárek logo"
         class="__image footer-logo"
         width={720}

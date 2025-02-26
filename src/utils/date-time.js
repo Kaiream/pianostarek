@@ -1,7 +1,10 @@
 export function getCurrentDateTime() {
-  const now = new Date().toISOString();
+  let serverTime = new Date();
+  const datePraha = serverTime.toLocaleDateString('cs-CZ', { timeZone: 'Europe/Prague' });
+  const timePraha = serverTime.toLocaleTimeString('cs-CZ', { timeZone: 'Europe/Prague' });
+
   return {
-    date: now.split('T')[0],
-    time: now.split('T')[1].split('.')[0]
+    date: datePraha,
+    time: timePraha
   };
 }

@@ -27,7 +27,7 @@
 // * date: YYYY-MM-DD
 // * time: hh:mm:ss
 
-import { createClient } from "@libsql/client";
+import { createClient } from "@libsql/client/web";
 import type { APIRoute } from "astro";
 import { getCurrentDateTime } from "../../utils/date-time";
 
@@ -40,6 +40,7 @@ export const POST: APIRoute = async ({ request }) => {
     url: import.meta.env.ASTRO_DB_REMOTE_URL,
     authToken: import.meta.env.ASTRO_DB_APP_TOKEN
   });
+
   // Parsing the incoming JSON data, the try-catch block is used to handle any errors
   try {
     // Store incoming form data in a variable
@@ -103,4 +104,18 @@ export const POST: APIRoute = async ({ request }) => {
     // Closing the client to free up resources
     await client.close();
   }
+};
+
+// Edge case handling for the GET HTTP method
+// This is a simple response that tells the client that the GET method is not allowed
+export const GET: APIRoute = async () => {
+  return new Response(JSON.stringify({
+    error: "Method not allowed"
+  }), {
+    status: 405,
+    headers: {
+      "Content-Type": "application/json",
+      "Allow": "POST"
+    }
+  });
 };

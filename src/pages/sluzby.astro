@@ -1,4 +1,6 @@
 ---
+export const prerender = true;
+
 import Hero from "../components/Hero.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 import Video from "../components/Video.astro";
@@ -87,7 +89,7 @@ const { title="Služby", description="Nabízíme služby jakéhokoli typu. Servi
           </p>
           <p class="parapianohour">
             Návštěvu si prosím domluvte předem telefonicky, emailem<br />
-            nebo vyplňte formulář <a href="kontakt.html#contact" class="here">zde</a >.
+            nebo vyplňte formulář <a href="/kontakt#contact" class="here">zde</a >.
           </p>
           <p class="parapianohour">
             Tel:

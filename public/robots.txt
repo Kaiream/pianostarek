@@ -1,0 +1,23 @@
+# https://piano-starek.netlify.app
+User-agent: *
+Allow: /
+Allow: /nabidka
+Allow: /archiv
+Allow: /sluzby
+Allow: /kontakt
+Allow: /showroom
+
+# Sitemaps
+Sitemap: https://piano-starek.netlify.app/sitemap-index.xml
+
+# Assets and API
+Disallow: /api/
+Disallow: /_astro/
+Disallow: /.netlify/
+
+# Parameters
+Allow: /nabidka?*
+Allow: /archiv/*?*
+
+# Crawl delay
+Crawl-delay: 10

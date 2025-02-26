@@ -2434,7 +2434,7 @@ input[type="number"].price-to {
 .section-form {
   padding: var(--size-fluid-5) 0;
   background-color: var(--background-tertiary);
-  background-image: url(../../src/assets/grafika1.svg);
+  background-image: url(../../src/assets/musical_background.svg);
   background-position: 100% 100%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -4217,7 +4217,7 @@ input[type="number"].price-to {
   .section-404 {
     padding-top: var(--size-fluid-7);
   }
-  
+
   .absolutely-massive-heading {
     font-size: 4rem;
   }

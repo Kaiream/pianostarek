@@ -1,16 +1,24 @@
-# Bakalářská práce
+<h1 style="border: none;">Bakalářská práce</h1>
 
-## Tvorba webových stránek pro obchod s hudebními nástroji.
+<h2 style="margin-top: 0;">Tvorba webových stránek pro obchod s hudebními nástroji.</h2>
 
-### 🚀 Struktura projektu:
+Bakalářská práce se zaměřuje na vývoj moderního webového řešení pro obchod [Piano Stárek](http://www.pianostarek.cz/) specializující se na prodej hudebních nástrojů. Stránky slouží jako online storefront - výloha pro uživatele, kteří se v případě zájmu o produkt mohou spojit s provozovatelem.
+
+Projekt využívá framework Astro s SSR funkcionalitou, integruje libSQL databázi pro ukládání dat z formuláře (pomocí API endpointů) a samozřejmě implementuje sexy frontend s důrazem na přístupnost a uživatelskou přívětivost s bleskurychlou odezvou (Lighthouse 100 ze všech 4 kategorií 🎉)
+
+Řešení je plně responzivní a nabízí super rychlé načítání díky frameworku Astro 🚀.
+
+[Link na stránky](https://piano-starek.netlify.app/)
+
+### ⛓️ Struktura projektu:
 
 ```text
 /
+├── db/
+│   └── config.ts
 ├── public/
 │   └── images/
 │   └── favicon.ico
-├── db/
-│   └── config.ts
 ├── src/
 │   └── assets/
 │   └── components/
@@ -76,6 +84,7 @@
 │       └── price-format.js
 └── README.md
 └── astro.config.mjs
+└── netlify.toml
 └── package-lock.json
 └── package.json
 └── tsconfig.json

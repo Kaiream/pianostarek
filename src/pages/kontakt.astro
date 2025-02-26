@@ -3,20 +3,13 @@ export const prerender = false;
 
 import Hero from "../components/Hero.astro";
 import MainLayout from "../layouts/MainLayout.astro";
-const { title="Kontakt", description="Máte rozhodnuto? Chcete sjednat nezávislou prohlídku? Spojte se s námi a všechno zařídíme!" } = Astro.props;
-const { additionalDeclarations=`<link rel="preload" href="../../src/assets/grafika1.svg" as="image" />` } = Astro.props;
-
-import { Image } from "astro:assets";
-import hero from "../../src/assets/kontakt.jpg";
-import map from "../../src/assets/mapa-provozoven.png";
-import facebookLogo from "../../src/assets/facebook-logo.webp";
-import instagramLogo from "../../src/assets/instagram-logo.webp";
-import youtubeLogo from "../../src/assets/youtube-logo.webp";
-import mozart from "../../src/assets/kontakt-form.jpg";
 import ContactForm from "../components/ContactForm.astro";
+import { Image } from "astro:assets";
+
+const { title="Kontakt", description="Máte rozhodnuto? Chcete sjednat nezávislou prohlídku? Spojte se s námi a všechno zařídíme!" } = Astro.props;
 ---
 
-<MainLayout title={title} description={description} additionalDeclarations={additionalDeclarations}>
+<MainLayout title={title} description={description}>
   
   <!-- MAIN -->
   <main role="main" aria-label="Kontaktuje nás">
@@ -24,7 +17,7 @@ import ContactForm from "../components/ContactForm.astro";
     <!-- HERO -->
     <Hero
     heroTitle="KONTAKT"
-    backgroundImage={hero}>
+    backgroundImage={`${import.meta.env.BASE_URL}images/kontakt.webp`}>
     </Hero>
     
 
@@ -34,14 +27,14 @@ import ContactForm from "../components/ContactForm.astro";
         <div class="shops-left">
           <div class="shops">
             <div class="shop">
-              <h3 class="heading-3">Sídlo firmy</h3>
+              <h2 class="heading-3">Sídlo firmy</h2>
               <p class="paraddress">
                 Podkrušnohorská<br />
                 2058, 436 01, Litvínov
               </p>
             </div>
             <div class="shop">
-              <h3 class="heading-3">Showroom</h3>
+              <h2 class="heading-3">Showroom</h2>
               <p class="paraddress">
                 Přemyslovská 5,<br />
                 130 00 Praha 3
@@ -49,7 +42,7 @@ import ContactForm from "../components/ContactForm.astro";
             </div>
           </div>
           <Image
-          src={map}
+          src={`${import.meta.env.BASE_URL}images/mapa-provozoven.webp`}
           alt="Mapa České republiky"
           class="__image czech-map"
           width={2000}
@@ -62,7 +55,7 @@ import ContactForm from "../components/ContactForm.astro";
 
         <!-- CONTACT INFO -->
         <div class="shops-right">
-          <h3 class="heading-3">Kontaktní údaje</h3>
+          <h2 class="heading-3">Kontaktní údaje</h2>
           <p class="paracontact">
             Tel:
             <a href="tel:+420774359074" class="rich-link">
@@ -82,7 +75,7 @@ import ContactForm from "../components/ContactForm.astro";
           <div class="contact-socials">
             <a target="_blank" href="https://www.facebook.com/pages/wwwpianostarekcz/109704172392121" class="social-link">
               <Image
-              src={facebookLogo}
+              src={`${import.meta.env.BASE_URL}images/facebook-logo.webp`}
               alt="Facebook logo"
               class="__image social-image"
               width={64}
@@ -93,7 +86,7 @@ import ContactForm from "../components/ContactForm.astro";
             </a>
             <a target="_blank" href="https://www.instagram.com/pianostarek.cz/" class="social-link">
               <Image
-              src={instagramLogo}
+              src={`${import.meta.env.BASE_URL}images/instagram-logo.webp`}
               alt="Instagram logo"
               class="__image social-image"
               width={64}
@@ -104,7 +97,7 @@ import ContactForm from "../components/ContactForm.astro";
             </a>
             <a target="_blank" href="https://www.youtube.com/@pianostarek" class="social-link">
               <Image
-              src={youtubeLogo}
+              src={`${import.meta.env.BASE_URL}images/youtube-logo.webp`}
               alt="Youtube logo"
               class="__image social-image"
               width={64}
@@ -121,7 +114,7 @@ import ContactForm from "../components/ContactForm.astro";
     <!-- DETAILS -->
     <section class="section-details">
       <article class="details-container">
-        <h2 class="heading-3">Dodatečné informace</h2>
+        <h3 class="heading-3">Dodatečné informace</h3>
         <div class="details-body">
 
           <!-- LEFT -->
@@ -172,7 +165,7 @@ import ContactForm from "../components/ContactForm.astro";
       <div class="form-container">
         <div class="form-image">
           <Image
-          src={mozart}
+          src={`${import.meta.env.BASE_URL}images/kontakt-form.webp`}
           alt="Mozart nakupuje u nás"
           class="__image mozart"
           width={640}
@@ -184,7 +177,7 @@ import ContactForm from "../components/ContactForm.astro";
         </div>
 
         <ContactForm />
-        
+
       </div>
     </section>
   </main>
