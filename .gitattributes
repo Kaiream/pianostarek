@@ -1,0 +1,2 @@
+*.astro linguist-detectable=true
+*.css linguist-vendored
