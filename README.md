@@ -4,7 +4,7 @@
 
 Bakalářská práce se zaměřuje na vývoj moderního webového řešení pro obchod [Piano Stárek](http://www.pianostarek.cz/) specializující se na prodej hudebních nástrojů. Stránky slouží jako online storefront - výloha pro uživatele, kteří se v případě zájmu o produkt mohou spojit s provozovatelem.
 
-Projekt využívá framework Astro s SSR funkcionalitou, integruje libSQL databázi pro ukládání dat z formuláře (pomocí API endpointů) a samozřejmě implementuje sexy frontend s důrazem na přístupnost a uživatelskou přívětivost s bleskurychlou odezvou (Lighthouse 100 ze všech 4 kategorií 🎉)
+Projekt využívá framework Astro s SSR funkcionalitou, integruje libSQL databázi pro ukládání dat z formuláře (pomocí API endpointů), spravuje kolekci dat za pomocí CMS Keystatic a samozřejmě implementuje sexy frontend s důrazem na přístupnost a uživatelskou přívětivost s bleskurychlou odezvou (Lighthouse 100 ze všech 4 kategorií 🎉)
 
 Řešení je plně responzivní a nabízí super rychlé načítání díky frameworku Astro 🚀.
 
@@ -84,6 +84,7 @@ Projekt využívá framework Astro s SSR funkcionalitou, integruje libSQL datab�
 │       └── price-format.js
 └── README.md
 └── astro.config.mjs
+└── keystatic.config.ts
 └── netlify.toml
 └── package-lock.json
 └── package.json

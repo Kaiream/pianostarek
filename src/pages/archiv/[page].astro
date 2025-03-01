@@ -81,36 +81,42 @@ export async function getStaticPaths() {
 
           <!-- PRODUCT DISPLAY -->
           <div class="page-divider">
-            <div class="sold-product-cards">
-              {currentProducts.map((product) => (
-                <a href={`/archiv/${generateSlug(product.data.model, product.data.id)}`} class="product-card" data-id={product.data.id}>
-                  <figure class="product-body-mini">
-                    <Image
-                      src={product.data.coverImage.src}
-                      alt={product.data.coverImage.alt || `Doprovázející obrázek produktu ${product.data.model}`}
-                      class="__image product-image"
-                      quality={100}
-                      format="webp"
-                      loading="lazy"
-                    />
-                    <figcaption class="product-description">
-                      <span class="product-name">
-                        {product.data.model}
-                      </span>
-                      <span class="product-price">
-                        {formatPrice(product.data.price)}
-                      </span>
-                    </figcaption>
-                  </figure>
-                </a>
-              ))}
-            </div>
-            
+            {productDatabase.length > 0 ? (
+              <div class="sold-product-cards">
+                {currentProducts.map((product) => (
+                  <a href={`/archiv/${generateSlug(product.data.model, product.data.id)}`} class="product-card" data-id={product.data.id}>
+                    <figure class="product-body-mini">
+                      <Image
+                        src={product.data.coverImage.src}
+                        alt={product.data.coverImage.alt || `Doprovázející obrázek produktu ${product.data.model}`}
+                        class="__image product-image"
+                        quality={100}
+                        format="webp"
+                        loading="lazy"
+                      />
+                      <figcaption class="product-description">
+                        <span class="product-name">
+                          {product.data.model}
+                        </span>
+                        <span class="product-price">
+                          {formatPrice(product.data.price)}
+                        </span>
+                      </figcaption>
+                    </figure>
+                  </a>
+                ))}
+              </div>
+            ) : (
+            <p>Žádné produkty nenalezeny...</p>
+            )}
+
+            <!-- PAGINATION -->
             <Pagination 
               currentPage={currentPage}
               totalPages={totalPages}
               baseUrl="/archiv/"
             />
+
           </div>
         </div>
       </div>
