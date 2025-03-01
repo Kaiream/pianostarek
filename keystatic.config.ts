@@ -192,6 +192,7 @@ export default config({
           description: `-1 nastaví text na "Prodáno"`,
           validation: {
             isRequired: true,
+            min: -1,
           },
         }),
         content: fields.markdoc({
