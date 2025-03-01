@@ -3,11 +3,11 @@ import MainLayout from './MainLayout.astro';
 import { formatPrice } from '../utils/price-format';
 import { Image } from 'astro:assets';
 import Breadcrumb from "../components/Breadcrumb.astro";
+import { catConcat } from '../utils/category-concatenation';
 const { frontmatter } = Astro.props;
 
 // Destructuring the frontmatter for easier access
-const { title, model, price, coverImage, gallery, details, categories } = frontmatter;
-
+const { title, model, price, coverImage, gallery, details, constructionType, condition, brand, finish } = frontmatter;
 const { description="Inzerát nabízeného produktu", backPath, backText } = Astro.props;
 const formattedPrice = formatPrice(price);
 --- 
@@ -79,10 +79,10 @@ const formattedPrice = formatPrice(price);
           <div class="categories">
             <p class="paracategory">
               Kategorie:
-              {categories.map((category: string, index: number) => [
-                <a href="/nabidka" class="category-link">{category}</a>,
-                index < categories.length - 1 && ", "
-              ])}
+                <a href="/nabidka" class="category-link">{constructionType}</a>,
+                <a href="/nabidka" class="category-link">{condition}</a>,
+                <a href="/nabidka" class="category-link">{brand}</a>,
+                <a href="/nabidka" class="category-link">{finish}</a>
             </p>
           </div>
         </article>

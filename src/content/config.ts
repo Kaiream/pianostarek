@@ -16,7 +16,10 @@ const productSchema = ({ image }: { image: ImageFunction }) => z.object({
   model: z.string(),
   price: z.union([z.number(), z.string()]),
   details: z.array(z.string()),
-  categories: z.array(z.string()),
+  constructionType: z.string(),
+  condition: z.string(),
+  brand: z.string(),
+  finish: z.string(),
 });
 
 const nabidkaCollection = defineCollection({

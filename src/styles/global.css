@@ -1829,7 +1829,7 @@ input[type="number"].price-to {
 }
 
 .listing-description {
-  display: flex;
+  display: block;
   flex-direction: column;
 }
 

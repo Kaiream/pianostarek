@@ -10,6 +10,7 @@ import { getCollection, type CollectionEntry } from "astro:content";
 import { generateSlug } from "../../content/config";
 import { Image } from "astro:assets";
 import hero from "../../../src/assets/nabidka.jpg";
+import { catConcat } from "../../utils/category-concatenation";
 
 const { title="Nabídka", description="Naše aktuální nabídka nástrojů." } = Astro.props;
 
@@ -74,30 +75,39 @@ const searchQuery = Astro.url.searchParams.get("vyhledat") || '';
 
           <!-- ACTUAL PRODUCT DISPLAY -->
           <div class="page-divider">
-            <div class="product-cards">
-              {productDatabase.map((product: CollectionEntry<"nabidka">) => (
-                <a href={`/nabidka/${generateSlug(product.data.model, product.data.id)}`} class="product-card" data-id={product.data.id} data-price={product.data.price} data-categories={product.data.categories.join(',')}>
-                  <figure class="product-body-mini">
-                    <Image
-                      src={product.data.coverImage.src}
-                      alt={product.data.coverImage.alt || `Doprovázející obrázek produktu ${product.data.model}`}
-                      class="__image product-image"
-                      quality={100}
-                      format="webp"
-                      loading="lazy"
-                    />
-                    <figcaption class="product-description">
-                      <span class="product-name">
-                        {product.data.model}
-                      </span>
-                      <span class="product-price">
-                        {formatPrice(product.data.price)}
-                      </span>
-                    </figcaption>
-                  </figure>
-                </a>
-              ))}
-            </div>
+            {productDatabase.length > 0 ? (
+              <div class="product-cards">
+                {productDatabase.map((product: CollectionEntry<"nabidka">) => (
+                  <a
+                  href={`/nabidka/${generateSlug(product.data.model, product.data.id)}`}
+                  class="product-card"
+                  data-id={product.data.id}
+                  data-price={product.data.price}
+                  data-categories={catConcat(product.data)}>
+                    <figure class="product-body-mini">
+                      <Image
+                        src={product.data.coverImage.src}
+                        alt={product.data.coverImage.alt || `Doprovázející obrázek produktu ${product.data.model}`}
+                        class="__image product-image"
+                        quality={100}
+                        format="webp"
+                        loading="lazy"
+                      />
+                      <figcaption class="product-description">
+                        <span class="product-name">
+                          {product.data.model}
+                        </span>
+                        <span class="product-price">
+                          {formatPrice(product.data.price)}
+                        </span>
+                      </figcaption>
+                    </figure>
+                  </a>
+                ))}
+              </div>
+            ) : (
+            <p>Žádné produkty nenalezeny...</p>
+            )}
           </div>
         </div>
       </div>

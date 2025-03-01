@@ -6,6 +6,7 @@ import { getCollection, type CollectionEntry } from "astro:content";
 import { generateSlug } from "../../content/config";
 import { formatPrice } from "../../utils/price-format";
 import { Image } from "astro:assets";
+import { catConcat } from "../../utils/category-concatenation";
 
 export async function getStaticPaths() {
   const products = await getCollection("nabidka");
@@ -22,8 +23,12 @@ interface Props {
 const { product } = Astro.props as Props;
 const { Content } = await product.render();
 
+// Get categories array for current product
+const productCategories = catConcat(product.data);
+
 // db pull
 const productDatabase = await getCollection("nabidka");
+
 
 // Filter related products
 const relatedProducts = productDatabase
@@ -31,12 +36,12 @@ const relatedProducts = productDatabase
     // Exclude current product
     p.data.id !== product.data.id && 
     // Check for matching categories
-    p.data.categories.some(cat => product.data.categories.includes(cat))
+    catConcat(p.data).some(cat => catConcat(product.data).includes(cat))
   )
   // Sort by number of matching categories for most relevant first
   .sort((a, b) => {
-    const aMatches = a.data.categories.filter(cat => product.data.categories.includes(cat)).length;
-    const bMatches = b.data.categories.filter(cat => product.data.categories.includes(cat)).length;
+    const aMatches = catConcat(a.data).filter(cat => catConcat(product.data).includes(cat)).length;
+    const bMatches = catConcat(b.data).filter(cat => catConcat(product.data).includes(cat)).length;
     return bMatches - aMatches;
   })
   .slice(0, 3);
@@ -50,31 +55,40 @@ const relatedProducts = productDatabase
     <div class="related-products-container">
       <h2 class="heading-2">Související produkty</h2>
       <hr class="__separator separator-heading" />
-      <div class="products-horizon">
-        {relatedProducts.slice(0, 3).map((product: CollectionEntry<"nabidka">) => (
-          <a href={`/nabidka/${generateSlug(product.data.model, product.data.id)}`} class="product-card" data-id={product.data.id} data-price={product.data.price} data-categories={product.data.categories.join(',')}>
-            <figure class="product-body">
-              <Image
-                src={product.data.coverImage.src}
-                alt={product.data.coverImage.alt || `Doprovázející obrázek produktu ${product.data.model}`}
-                class="__image product-image"
-                quality={100}
-                format="webp"
-                loading="lazy"
-              />
-              <figcaption class="product-description">
-                <span class="product-name">
-                  {product.data.model}
-                </span>
-                <span class="product-price">
-                  {formatPrice(product.data.price)}
-                </span>
-              </figcaption>
-            </figure>
-          </a>
-        ))}
-      </div>
-      <a href="nabidka.html" class="button-link">
+      {relatedProducts.length > 0 ? (
+        <div class="products-horizon">
+          {relatedProducts.map((product: CollectionEntry<"nabidka">) => (
+            <a
+            href={`/nabidka/${generateSlug(product.data.model, product.data.id)}`}
+            class="product-card"
+            data-id={product.data.id}
+            data-price={product.data.price}
+            data-categories={catConcat(product.data)}>
+              <figure class="product-body">
+                <Image
+                  src={product.data.coverImage.src}
+                  alt={product.data.coverImage.alt || `Doprovázející obrázek produktu ${product.data.model}`}
+                  class="__image product-image"
+                  quality={100}
+                  format="webp"
+                  loading="lazy"
+                />
+                <figcaption class="product-description">
+                  <span class="product-name">
+                    {product.data.model}
+                  </span>
+                  <span class="product-price">
+                    {formatPrice(product.data.price)}
+                  </span>
+                </figcaption>
+              </figure>
+            </a>
+          ))}
+        </div>
+      ) : (
+      <p>Žádné související produkty nenalezeny.</p>
+      )}
+      <a href="/nabidka" class="button-link">
         Zobrazit celou nabídku
       </a>
     </div>
