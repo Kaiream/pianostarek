@@ -1993,6 +1993,19 @@ input[type="number"].price-to {
   margin-top: 0;
 }
 
+
+.listing-call-to-action {
+  align-items: center;
+  display: flex;
+  column-gap: var(--gap-xl);
+}
+
+.listing-call-to-action .button-red {
+  align-self: auto;
+  font-size: var(--font-size-2);
+  padding: var(--size-2) var(--size-2-point-5);
+}
+
 /* ********************************************************************************************************** */
 /* *************************************************INZERAT.OLD********************************************** */
 /* ********************************************************************************************************** */
@@ -3074,6 +3087,11 @@ input[type="number"].price-to {
   .cena-text {
     font-size: 1rem;
   }
+
+  .listing-call-to-action {
+    column-gap: normal;
+    justify-content: space-between;
+  }
 }
 
 
@@ -3253,6 +3271,10 @@ input[type="number"].price-to {
 
   .__paragraph {
     font-size: var(--font-size-2);
+  }
+
+  .listing-call-to-action {
+    padding-bottom: var(--size-2);
   }
 }
 
@@ -3757,6 +3779,16 @@ input[type="number"].price-to {
   .separator-inzerat {
     width: 15%;
   }
+
+  .leading-text {
+    row-gap: var(--gap-xs);
+}
+  
+  .listing-call-to-action .button-red {
+    align-self: auto;
+    font-size: var(--font-size-1);
+    padding: var(--size-1) var(--size-2);
+  }
 }
 
 
@@ -4212,6 +4244,11 @@ input[type="number"].price-to {
 
   .separator-inzerat {
     width: 20%;
+  }
+
+  .listing-call-to-action .button-red {
+    margin-bottom: 0px;
+    font-size: var(--font-size-1);
   }
 
   .section-404 {

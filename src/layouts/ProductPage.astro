@@ -45,6 +45,7 @@ const formattedPrice = formatPrice(price);
                 quality={100}
                 format="webp"
                 loading="eager"
+                title={gallery}
               />
             ))}
           </div>
@@ -56,7 +57,10 @@ const formattedPrice = formatPrice(price);
             <h1 class="listing-name">
               {model}
             </h1>
-            <h2 class="listing-price">{formattedPrice}</h2>
+            <div class="listing-call-to-action">
+              <h2 class="listing-price">{formattedPrice}</h2>
+              <slot name="cta" />
+            </div>
           </div>
           <div class="listing-description">
             <span class="description-heading">Popis</span>
@@ -86,6 +90,7 @@ const formattedPrice = formatPrice(price);
             </p>
           </div>
         </article>
+
       </div>
     </section>
 
