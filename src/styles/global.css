@@ -2001,6 +2001,7 @@ input[type="number"].price-to {
 }
 
 .listing-call-to-action .button-red {
+  font-weight: 600;
   align-self: auto;
   font-size: var(--font-size-2);
   padding: var(--size-2) var(--size-2-point-5);
