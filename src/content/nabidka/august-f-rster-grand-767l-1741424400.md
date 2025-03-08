@@ -1,35 +1,26 @@
 ---
 model: August Förster GRAND 767L
-id: 1740833277
+id: 1741424400
 price: 55950
 coverImage:
-  src: >-
-    /src/assets/nabidka/august-f-rster-grand-767l-1740833277-copy/coverImage/src.jpg
+  src: /src/assets/nabidka/august-f-rster-grand-767l-1741424400/coverImage/src.jpg
   alt: Hlavní obrázek produktu August Förster GRAND 767L
 gallery:
-  - src: >-
-      /src/assets/nabidka/august-f-rster-grand-767l-1740833277-copy/gallery/0/src.jpg
+  - src: /src/assets/nabidka/august-f-rster-grand-767l-1741424400/gallery/0/src.jpg
     alt: Fotka August Förster GRAND 767L
-  - src: >-
-      /src/assets/nabidka/august-f-rster-grand-767l-1740833277-copy/gallery/1/src.jpg
+  - src: /src/assets/nabidka/august-f-rster-grand-767l-1741424400/gallery/1/src.jpg
     alt: Fotka August Förster GRAND 767L
-  - src: >-
-      /src/assets/nabidka/august-f-rster-grand-767l-1740833277-copy/gallery/2/src.jpg
+  - src: /src/assets/nabidka/august-f-rster-grand-767l-1741424400/gallery/2/src.jpg
     alt: Fotka August Förster GRAND 767L
-  - src: >-
-      /src/assets/nabidka/august-f-rster-grand-767l-1740833277-copy/gallery/3/src.jpg
+  - src: /src/assets/nabidka/august-f-rster-grand-767l-1741424400/gallery/3/src.jpg
     alt: Fotka August Förster GRAND 767L
-  - src: >-
-      /src/assets/nabidka/august-f-rster-grand-767l-1740833277-copy/gallery/4/src.jpg
+  - src: /src/assets/nabidka/august-f-rster-grand-767l-1741424400/gallery/4/src.jpg
     alt: Fotka August Förster GRAND 767L
-  - src: >-
-      /src/assets/nabidka/august-f-rster-grand-767l-1740833277-copy/gallery/5/src.jpg
+  - src: /src/assets/nabidka/august-f-rster-grand-767l-1741424400/gallery/5/src.jpg
     alt: Fotka August Förster GRAND 767L
-  - src: >-
-      /src/assets/nabidka/august-f-rster-grand-767l-1740833277-copy/gallery/6/src.jpg
+  - src: /src/assets/nabidka/august-f-rster-grand-767l-1741424400/gallery/6/src.jpg
     alt: Fotka August Förster GRAND 767L
-  - src: >-
-      /src/assets/nabidka/august-f-rster-grand-767l-1740833277-copy/gallery/7/src.jpg
+  - src: /src/assets/nabidka/august-f-rster-grand-767l-1741424400/gallery/7/src.jpg
     alt: Fotka August Förster GRAND 767L
 details:
   - 'Rok výroby / opus: 1917'
