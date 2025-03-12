@@ -4,7 +4,9 @@ import { defineCollection, z } from "astro:content";
 import type { ImageFunction } from 'astro:content';
 
 const productSchema = ({ image }: { image: ImageFunction }) => z.object({
+  model: z.string(),
   id: z.number(),
+  price: z.union([z.number(), z.string()]),
   coverImage: z.object({
     src: image(),
     alt: z.string().optional(),
@@ -13,8 +15,6 @@ const productSchema = ({ image }: { image: ImageFunction }) => z.object({
     src: image(),
     alt: z.string().optional(),
   })),
-  model: z.string(),
-  price: z.union([z.number(), z.string()]),
   details: z.array(z.string()),
   constructionType: z.string(),
   condition: z.string(),

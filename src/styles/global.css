@@ -113,15 +113,15 @@ html {
   --red-2: rgba(138, 69, 69, 1);
   --red-3: rgba(116, 29, 29, 1);
   --red-4: rgba(176, 30, 30, 1);
-  --red-5: rgba(181, 2, 2, 1);
-  --red-6: rgba(224, 49, 49, 1);
+  --red-5: rgb(195, 29, 29);
+  --red-6: rgb(223, 42, 42);
   --yellow-0: rgba(255, 249, 219, 1);
   --yellow-1: rgba(252, 250, 225, 1);
   --yellow-2: rgba(255, 236, 153, 1);
   --yellow-3: rgba(191, 166, 122, 1);
   --yellow-4: rgba(255, 212, 59, 1);
   --yellow-5: rgba(252, 196, 25, 1);
-  --yellow-7: rgba(250, 224, 132, 1);
+  --yellow-7: rgb(250, 224, 132);
 
   /* Borders */
   --border-size-1: 1px;
@@ -724,6 +724,10 @@ html {
   flex-direction: column;
   column-gap: var(--gap-sms);
   row-gap: var(--gap-sms);
+}
+
+.hour-piano-content .button-red {
+  background-color: var(--red-5);
 }
 
 .body-content {
