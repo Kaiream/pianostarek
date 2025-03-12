@@ -3,7 +3,6 @@ import MainLayout from './MainLayout.astro';
 import { formatPrice } from '../utils/price-format';
 import { Image } from 'astro:assets';
 import Breadcrumb from "../components/Breadcrumb.astro";
-import { catConcat } from '../utils/category-concatenation';
 const { frontmatter } = Astro.props;
 
 // Destructuring the frontmatter for easier access
@@ -21,12 +20,12 @@ const formattedPrice = formatPrice(price);
     <Breadcrumb {backPath} {backText}/>
   
     <!-- PRODUCT LISTING -->
-    <section class="section-product-listing">
-      <div class="listing-container">
+    <section class="section-product-listing" role="region" aria-label="Inzerát produktu">
+      <div class="listing-container" aria-label="Inzerát produktu">
   
         <!-- LEFT CONTENT - PICTURES -->
-        <div class="listing-left">
-          <div class="main-image-container">
+        <div class="listing-left" aria-label="Galerie obrázků produktu">
+          <div class="main-image-container" aria-label="Hlavní obrázek">
             <Image
             src={coverImage.src}
             class="__image listing-main-image"
@@ -36,7 +35,7 @@ const formattedPrice = formatPrice(price);
             loading="eager"
             />
           </div>
-          <div class="listing-gallery">
+          <div class="listing-gallery" aria-label="Obrázková galerie">
             {gallery.map((image: any) => (
               <Image
                 src={image.src}
@@ -52,34 +51,34 @@ const formattedPrice = formatPrice(price);
         </div>
 
         <!-- RIGHT CONTENT - DESCRIPTION -->
-        <article class="listing-right">
-          <div class="leading-text">
-            <h1 class="listing-name">{model}</h1>
-            <div class="listing-call-to-action">
-              <h2 class="listing-price">{formattedPrice}</h2>
+        <article class="listing-right" aria-label="Popis produktu">
+          <div class="leading-text" aria-label="Hlavní texty">
+            <h1 class="listing-name" aria-label="Model">{model}</h1>
+            <div class="listing-call-to-action" aria-label="Odkaz na stránku kontakty">
+              <h2 class="listing-price" aria-label="Cena">{formattedPrice}</h2>
               <slot name="cta" />
             </div>
           </div>
-          <div class="listing-description">
-            <span class="description-heading">Popis</span>
+          <div class="listing-description" aria-label="Rozsáhlý popis produktu">
+            <span class="description-heading" aria-label="Popis">Popis</span>
             <hr class="__separator separator-inzerat" />
 
             <!-- GET CONTENT FROM MD FILE -->
             <slot name="content" />
 
           </div>
-          <div class="listing-details">
-            <span class="description-heading">Detaily<br /></span>
+          <div class="listing-details" aria-label="Detaily produktu">
+            <span class="description-heading" aria-label="Detaily">Detaily<br /></span>
             <hr class="__separator separator-inzerat" />
-            <ul class="listing-detail">
+            <ul class="listing-detail" aria-label="List detailů">
               {details.map((detail: string) => (
                 <li>{detail}</li>
               ))}
             </ul>
           </div>
           <hr class="__separator separator-category" />
-          <div class="categories">
-            <p class="paracategory">
+          <div class="categories" aria-label="Kategorie produktu">
+            <p class="paracategory" aria-label="List kategorií">
               Kategorie:
                 <a href="/nabidka" class="category-link">{constructionType}</a>,
                 <a href="/nabidka" class="category-link">{condition}</a>,

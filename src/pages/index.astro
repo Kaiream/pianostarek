@@ -38,7 +38,7 @@ const newestProducts = productDatabase.sort((a, b) => b.data.id - a.data.id).sli
     </Hero>
 
     <!-- PRODUCTS -->
-    <section class="section-products" role="presentation" aria-label="Nové zboží">
+    <section class="section-products" role="region" aria-label="Sekce nového zboží">
       <div class="container-flex-column">
         <h2 class="heading-2">Nové zboží</h2>
         <hr class="__separator separator-heading" />
@@ -47,10 +47,11 @@ const newestProducts = productDatabase.sort((a, b) => b.data.id - a.data.id).sli
             {newestProducts.map((product: CollectionEntry<"nabidka">) => (
               <a href={`/nabidka/${generateSlug(product.data.model, product.data.id)}`}
               class="product-card"
+              aria-label="Interaktivní karta produktu"
               data-id={product.data.id}
               data-price={product.data.price}
               data-categories={catConcat(product.data)}>
-                <figure class="product-body">
+                <figure class="product-body" aria-label="Karta produktu s obrázkem, názvem a cenou">
                   <Image
                     src={product.data.coverImage.src}
                     alt={product.data.coverImage.alt || `Doprovázející obrázek produktu ${product.data.model}`}
@@ -59,11 +60,11 @@ const newestProducts = productDatabase.sort((a, b) => b.data.id - a.data.id).sli
                     format="webp"
                     loading="eager"
                   />
-                  <figcaption class="product-description">
-                    <span class="product-name">
+                  <figcaption class="product-description" aria-label="Popis produktu">
+                    <span class="product-name" aria-label="Název produktu">
                       {product.data.model}
                     </span>
-                    <span class="product-price">
+                    <span class="product-price" aria-label="Cena produktu">
                       {formatPrice(product.data.price)}
                     </span>
                   </figcaption>
@@ -74,16 +75,14 @@ const newestProducts = productDatabase.sort((a, b) => b.data.id - a.data.id).sli
         ) : (
         <p>Žádné produkty nenalezeny :c</p>
         )}
-        <a href="/nabidka" class="button-link">
-          Zobrazit celou nabídku
-        </a>
+        <a href="/nabidka" class="button-link">Zobrazit celou nabídku</a>
       </div>
     </section>
 
     <!-- HOUR PIANO -->
-    <section class="section-hour-piano" role="complementary" aria-label="Služba hodinové piano">
+    <section class="section-hour-piano" role="region" aria-label="Služba hodinové piano">
       <div class="container-hour-piano">
-        <div class="hour-piano-video">
+        <div class="hour-piano-video" aria-label="Video služby">
           <Video
           videoId="Wj261yn3U1Y" 
           title="Ukázka hodinového piana v Praze"
@@ -91,35 +90,28 @@ const newestProducts = productDatabase.sort((a, b) => b.data.id - a.data.id).sli
         </div>
         <div class="hour-piano-content">
           <div class="body-content">
-            <h2 class="heading-alt">HODINOVÉ PIANO PRAHA</h2>
-            <span class="hour-piano-intro">
-              Chcete si zahrát na piano, ale nemáte kde?
-            </span>
-            <span class="hour-piano-eye-catcher">
-              Přijdtě k nám!
-            </span>
+            <h2 class="heading-alt" aria-label="Název služby">HODINOVÉ PIANO PRAHA</h2>
+            <span class="hour-piano-intro" aria-label="Úvodní text">Chcete si zahrát na piano, ale nemáte kde?</span>
+            <span class="hour-piano-eye-catcher" aria-label="Chytlavý text">Přijdtě k nám!</span>
           </div>
-          <a href="/sluzby#hour" class="button-red">
-            MÁM ZÁJEM
-          </a>
+          <a href="/sluzby#hour" class="button-red" aria-label="Odkaz na stránku se službami">MÁM ZÁJEM</a>
         </div>
       </div>
     </section>
 
     <!-- INTRO -->
-    <section class="section-intro" role="contentinfo" aria-label="O nás">
+    <section class="section-intro" role="region" aria-label="O nás">
       <div class="intro-container">
         <h2 class="heading-2">Piano Stárek</h2>
         <hr class="__separator separator-heading"/>
-        <p class="intro-p">
+        <p class="intro-p" aria-label="Popis firmy">
           Prodáme či koupíme piano, pianino, křídlo nebo klavír. <br />
           Nabízíme nové i starší hudební nástroje po jednoduché či kompletní generální opravě. <br />
-          Ladění, výkup, oprava, stěhování, pronájem hudebních nástrojů.
-        </p>
-        <div class="reference-box">
-          <a href="https://archiv.hn.cz/c1-48410700-zivnostnik-roku#:~:text=d%C4%9Bl%C3%A1%20bylinn%C3%A9%20tinktury.-,Vlastislav%20St%C3%A1rek,-%C3%9Asteck%C3%BD%20kraj" class="reference-link" target="_blank">
-            <aside class="references">
-              <div class="reference-image-box">
+          Ladění, výkup, oprava, stěhování, pronájem hudebních nástrojů.</p>
+        <div class="reference-box" role="complementary" aria-label="Reference">
+          <a href="https://archiv.hn.cz/c1-48410700-zivnostnik-roku#:~:text=d%C4%9Bl%C3%A1%20bylinn%C3%A9%20tinktury.-,Vlastislav%20St%C3%A1rek,-%C3%9Asteck%C3%BD%20kraj" class="reference-link" target="_blank" aria-label="Odkaz na článek o hospodářské ceně">
+            <aside class="references" aria-label="Živnostník roku">
+              <div class="reference-image-box" aria-label="Ikona ceny">
                 <Image
                 src={prize}
                 alt="Cena hospodářských novin"
@@ -129,24 +121,20 @@ const newestProducts = productDatabase.sort((a, b) => b.data.id - a.data.id).sli
                 quality={80}
                 format="webp"/>
               </div>
-              <p class="cenagraph">
-                <span class="cena-text">
-                  1. místo ŽIVNOSTNÍK ROKU 2010
-                </span>
-                <span class="cena-text">
-                  Cena Hospodářských novin
-                </span>
+              <p class="cenagraph" aria-label="Text ceny">
+                <span class="cena-text" aria-label="První část textu">1. místo ŽIVNOSTNÍK ROKU 2010</span>
+                <span class="cena-text" aria-label="Druhá část textu">Cena Hospodářských novin</span>
               </p>
               <div title="Otevře nové okno" class="redirect-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" aria-label="Ikona přesměrování">
                   <path fill="currentColor" d="M10.778 5.5h2.444c.822 0 1.469 0 1.99.043c.53.043.974.133 1.377.338a3.5 3.5 0 0 1 1.53 1.53c.205.403.295.847.338 1.378c.043.52.043 1.168.043 1.989v2.444c0 .822 0 1.469-.043 1.99c-.043.53-.133.974-.338 1.377a3.5 3.5 0 0 1-1.53 1.53c-.403.205-.847.295-1.378.338c-.52.043-1.168.043-1.989.043h-3.6c-1.782 0-2.675-2.154-1.415-3.414l4.836-4.836H10.5a.5.5 0 0 1 0-1h3.75a.5.5 0 0 1 .5.5v3.75a.5.5 0 0 1-1 0v-2.543l-4.836 4.836c-.63.63-.184 1.707.707 1.707H13.2c.848 0 1.455 0 1.93-.04c.469-.038.766-.11 1.005-.233a2.5 2.5 0 0 0 1.092-1.092c.122-.239.195-.536.234-1.005c.039-.476.039-1.082.039-1.93v-2.4c0-.848 0-1.455-.04-1.93c-.038-.469-.11-.766-.233-1.005a2.5 2.5 0 0 0-1.092-1.093c-.239-.121-.536-.194-1.005-.233c-.476-.039-1.082-.039-1.93-.039h-2.4c-.848 0-1.455 0-1.93.04c-.469.038-.766.11-1.005.232a2.5 2.5 0 0 0-1.093 1.093c-.121.239-.194.536-.233 1.005C6.5 9.345 6.5 9.952 6.5 10.8v2.7a.5.5 0 0 1-1 0v-2.722c0-.821 0-1.468.043-1.99c.043-.53.133-.974.338-1.377a3.5 3.5 0 0 1 1.53-1.53c.403-.205.847-.295 1.378-.338c.52-.043 1.168-.043 1.989-.043"/>
                 </svg>
               </div>
             </aside>
           </a>
-          <a href="https://www.google.com/search?sa=X&amp;sca_esv=d9567ae999c402f1&amp;biw=1920&amp;bih=927&amp;tbm=lcl&amp;sxsrf=AHTn8zo1jQGnhuL9seTeXp8M_rU2QkqC-w:1739622037149&amp;q=PIANOSTAREK+Reviews&amp;rflfq=1&amp;num=20&amp;stick=H4sIAAAAAAAAAONgkxI2MzY1MzAzNjE0NrYwMTY0MzMx38DI-IpROMDT0c8_OMQxyNVbISi1LDO1vHgRKzZRAFB7VqhGAAAA&amp;rldimm=6356063413384316647&amp;hl=en-CZ&amp;ved=2ahUKEwjN_MSM1cWLAxXdhv0HHduxHSIQ9fQKegQISBAF#lkt=LocalPoiReviews" class="reference-link" target="_blank">
-            <aside class="references-alt">
-              <div class="reference-image-box">
+          <a href="https://www.google.com/search?sa=X&amp;sca_esv=d9567ae999c402f1&amp;biw=1920&amp;bih=927&amp;tbm=lcl&amp;sxsrf=AHTn8zo1jQGnhuL9seTeXp8M_rU2QkqC-w:1739622037149&amp;q=PIANOSTAREK+Reviews&amp;rflfq=1&amp;num=20&amp;stick=H4sIAAAAAAAAAONgkxI2MzY1MzAzNjE0NrYwMTY0MzMx38DI-IpROMDT0c8_OMQxyNVbISi1LDO1vHgRKzZRAFB7VqhGAAAA&amp;rldimm=6356063413384316647&amp;hl=en-CZ&amp;ved=2ahUKEwjN_MSM1cWLAxXdhv0HHduxHSIQ9fQKegQISBAF#lkt=LocalPoiReviews" class="reference-link" target="_blank" aria-label="Odkaz na hodnocení Google">
+            <aside class="references-alt" aria-label="Google hodnocení">
+              <div class="reference-image-box" aria-label="Ikona Google">
                 <Image
                 src={google}
                 alt="Google logo"
@@ -155,7 +143,7 @@ const newestProducts = productDatabase.sort((a, b) => b.data.id - a.data.id).sli
                 height={1200}
                 quality={80}/>
               </div>
-              <div class="reference-google">
+              <div class="reference-google" aria-label="Ikona hvězd">
                 <Image
                 src={stars}
                 alt="Google recenze hvězdy"
@@ -164,25 +152,21 @@ const newestProducts = productDatabase.sort((a, b) => b.data.id - a.data.id).sli
                 height={130}
                 quality={50}
                 format="webp"/>
-                <p class="googlegraph">
-                  <span class="review-number">
-                    4.9
-                  </span>
-                  <span class="review-details">
-                    Hvězdiček, 14 recenzí
-                  </span>
+                <p class="googlegraph" aria-label="Text ceny">
+                  <span class="review-number" aria-label="První část textu">4.9</span>
+                  <span class="review-details" aria-label="Druhá část textu">Hvězdiček, 14 recenzí</span>
                 </p>
               </div>
               <div title="Otevře nové okno" class="redirect-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" >
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" aria-label="Ikona přesměrování">
                   <path fill="currentColor" d="M10.778 5.5h2.444c.822 0 1.469 0 1.99.043c.53.043.974.133 1.377.338a3.5 3.5 0 0 1 1.53 1.53c.205.403.295.847.338 1.378c.043.52.043 1.168.043 1.989v2.444c0 .822 0 1.469-.043 1.99c-.043.53-.133.974-.338 1.377a3.5 3.5 0 0 1-1.53 1.53c-.403.205-.847.295-1.378.338c-.52.043-1.168.043-1.989.043h-3.6c-1.782 0-2.675-2.154-1.415-3.414l4.836-4.836H10.5a.5.5 0 0 1 0-1h3.75a.5.5 0 0 1 .5.5v3.75a.5.5 0 0 1-1 0v-2.543l-4.836 4.836c-.63.63-.184 1.707.707 1.707H13.2c.848 0 1.455 0 1.93-.04c.469-.038.766-.11 1.005-.233a2.5 2.5 0 0 0 1.092-1.092c.122-.239.195-.536.234-1.005c.039-.476.039-1.082.039-1.93v-2.4c0-.848 0-1.455-.04-1.93c-.038-.469-.11-.766-.233-1.005a2.5 2.5 0 0 0-1.092-1.093c-.239-.121-.536-.194-1.005-.233c-.476-.039-1.082-.039-1.93-.039h-2.4c-.848 0-1.455 0-1.93.04c-.469.038-.766.11-1.005.232a2.5 2.5 0 0 0-1.093 1.093c-.121.239-.194.536-.233 1.005C6.5 9.345 6.5 9.952 6.5 10.8v2.7a.5.5 0 0 1-1 0v-2.722c0-.821 0-1.468.043-1.99c.043-.53.133-.974.338-1.377a3.5 3.5 0 0 1 1.53-1.53c.403-.205.847-.295 1.378-.338c.52-.043 1.168-.043 1.989-.043"/>
                 </svg>
               </div>
             </aside>
           </a>
         </div>
-        <div class="cover-images">
-          <a href="sluzby.html" class="cover-link">
+        <div class="cover-images" role="list" aria-label="Náhledové obrázky">
+          <a href="sluzby.html" class="cover-link" aria-label="Odkaz na stránku se službami">
             <Image
             src={sluzby}
             alt="Obrázek služeb"
@@ -192,13 +176,11 @@ const newestProducts = productDatabase.sort((a, b) => b.data.id - a.data.id).sli
             quality={80}
             format="webp"
             />
-            <div class="cover-hidden-text">
-              <span class="cover-text">
-                Služby
-              </span>
+            <div class="cover-hidden-text" aria-label="Text náhledového obrázku">
+              <span class="cover-text" aria-label="Služby">Služby</span>
             </div>
           </a>
-          <a href="showroom.html" class="cover-link">
+          <a href="showroom.html" class="cover-link" aria-label="Odkaz na stránku showroomu">
             <Image
             src={showroom}
             alt="Obrázek našeho showroomu v Praze"
@@ -208,10 +190,8 @@ const newestProducts = productDatabase.sort((a, b) => b.data.id - a.data.id).sli
             quality={80}
             format="webp"
             />
-            <div class="cover-hidden-text">
-              <span class="cover-text">
-                Showroom
-              </span>
+            <div class="cover-hidden-text" aria-label="Text náhledového obrázku">
+              <span class="cover-text" aria-label="Showroom">Showroom</span>
             </div>
           </a>
         </div>
@@ -219,13 +199,13 @@ const newestProducts = productDatabase.sort((a, b) => b.data.id - a.data.id).sli
     </section>
 
     <!-- BRANDS -->
-    <section class="section-brands" role="complementary" aria-label="Naše značky">
-      <div class="brand-container">
+    <section class="section-brands" role="region" aria-label="Sekce našich značek">
+      <div class="brand-container" aria-label="Značky hudebních nástrojů">
         <h2 class="heading-2">Naše značky</h2>
         <hr class="__separator separator-heading" />
-        <div class="logo-set">
+        <div class="logo-set" aria-label="List značek">
           {brands.map((brand: BrandLogo) => (
-            <a href="/nabidka" class="brand-logo-link">
+            <a href="/nabidka" class="brand-logo-link" aria-label="Logo značky">
               <Image
                 src={brand.src}
                 alt={brand.alt}

@@ -728,6 +728,7 @@ html {
 
 .hour-piano-content .button-red {
   background-color: var(--red-5);
+  border: var(--border-size-1) solid var(--red-5);
 }
 
 .body-content {
@@ -3442,6 +3443,15 @@ input[type="number"].price-to {
   .section-hero-empty {
     padding-top: 6rem;
   }
+
+  .cover-hidden-text {
+    opacity: 1;
+  }
+
+  .cover-text {
+    opacity: 1;
+  }
+  
 
   .section-product-listing {
     padding-top: 10px;

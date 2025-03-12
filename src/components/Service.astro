@@ -9,36 +9,36 @@ interface Props {
 const { service } = Astro.props;
 ---
 
-<div data-state="active" role="tabpanel" class="tab-content">
-  <aside class={`${service.idPrimary}-background-text`}>
+<div data-state="active" role="tabpanel" class="tab-content" aria-label="Obsah karty">
+  <aside class={`${service.idPrimary}-background-text`} aria-label="Pokus o grafický desgin">
     <div class="big-dumb-text">{service.titlePrimary}</div>
   </aside>
 
   {service.idSecondary && (
-    <aside class={`${service.idSecondary}-background-text`}>
+    <aside class={`${service.idSecondary}-background-text`} aria-label="Pokus o grafický desgin">
       <div class="big-dumb-text">{service.titleSecondary}</div>
     </aside>
   )}
 
   {service.paragraphs && (
     service.paragraphs.map(paragraph => (
-      <p class="paraservice">
+      <p class="paraservice" aria-label="Paragraf informací">
         <span>{paragraph}</span>
       </p>
     ))
   )}
 
   {service.items && (
-  <ul class="__list service-list">
+  <ul class="__list service-list" aria-label="List informací">
     {service.items.map(item => (
       <li>{item}</li>
     ))}
   </ul>
   )}
 
-  <div class="tab-photos">
+  <div class="tab-photos" aria-label="Fotky služby">
     {service.images.map(img => (
-      <div class="tab-photo">
+      <div class="tab-photo" aria-label="Fotka služby">
         <Image
           src={img.src}
           alt={img.alt}

@@ -24,22 +24,21 @@ const { title="Služby", description="Nabízíme služby jakéhokoli typu. Servi
     </Hero>
 
     <!-- QUOTE -->
-    <section class="section-quote">
-      <div class="quote-container">
-        <blockquote class="quote">
+    <section class="section-quote" role="complementary" aria-label="Citát">
+      <div class="quote-container" aria-label="Citát">
+        <blockquote class="quote" aria-label="Citát">
           Jsme výkupce a prodejce pian s kompletními službami.<br />
           Postaráme se o vaše ladění a údržbu pian.<br />
           Provedeme větší i menší opravy nebo kompletní renovaci klavírů.<br />
-          Máme i odborné stěhováky klavírů.
-        </blockquote>
+          Máme i odborné stěhováky klavírů.</blockquote>
       </div>
     </section>
 
     <!-- SERVICES -->
-    <section class="section-services">
-      <div class="service-container">
+    <section class="section-services" role="region" aria-label="Naše služby">
+      <div class="service-container" aria-label="Služby">
         <h2 class="heading-2">NAŠE SLUŽBY</h2>
-        <div class="tab-container">
+        <div class="tab-container" aria-label="Karty služeb">
           <div role="tablist" class="tabs" aria-label="Služby">
             <button type="button" role="tab" data-state="active" class="__tab-trigger tab-style" aria-label="Servis">
               Servis
@@ -67,39 +66,31 @@ const { title="Služby", description="Nabízíme služby jakéhokoli typu. Servi
     </section>
 
     <!-- PIANO HOUR -->
-    <section class="section-piano-hour">
-      <div class="piano-hour-container">
-        <h2 id="hour" class="heading-2">
-          HODINOVÉ PIANO PRAHA
-        </h2>
-        <div class="piano-hour-video">
+    <section class="section-piano-hour" role="region" aria-label="Hodinové piano">
+      <div class="piano-hour-container" aria-label="Hodinové piano">
+        <h2 id="hour" class="heading-2" aria-label="Hodinové piano">HODINOVÉ PIANO PRAHA</h2>
+        <div class="piano-hour-video" aria-label="Video ukázka hodinového piana">
           <Video
           videoId="Wj261yn3U1Y" 
           title="Ukázka hodinového piana v Praze"
           />
         </div>
-        <div class="piano-hour-details">
-          <span class="piano-hour-intro"
-            >Chcete si zahrát na piano, ale nemáte kde?</span
-          ><span class="piano-hour-eye-catcher">Přijdtě k nám!</span>
-          <p class="parapianohour">
+        <div class="piano-hour-details" aria-label="Detaily hodinového piana">
+          <span class="piano-hour-intro" aria-label="Úvod hodinového piana">Chcete si zahrát na piano, ale nemáte kde?</span>
+          <span class="piano-hour-eye-catcher" aria-label="Chytlavý text">Přijdtě k nám!</span>
+          <p class="parapianohour" aria-label="Popis hodinového piana">
             Dostanete k dispozici Showroom s cca deseti pianiny.<br />
             Nikým nerušeni, si budete hrát na jaký nástroj chcete, co chcete a jak dlouho chcete.<br />
-            Káva a voda ZDARMA.
-          </p>
-          <p class="parapianohour">
+            Káva a voda ZDARMA.</p>
+          <p class="parapianohour" aria-label="Kontakt na hodinové piano">
             Návštěvu si prosím domluvte předem telefonicky, emailem<br />
-            nebo vyplňte formulář <a href="/kontakt#contact" class="here">zde</a >.
-          </p>
-          <p class="parapianohour">
-            Tel:
-            <a href="tel:+420774359074" class="rich-link">
-              +420 774 359 074
-            </a><br />
+            nebo vyplňte formulář <a href="/kontakt#contact" class="here">zde</a >.</p>
+          <p class="parapianohour" aria-label="Telefon a email">
+            Tel:<a href="tel:+420774359074" class="rich-link">
+              +420 774 359 074</a><br />
             Mail:
             <a href="mailto:info@pianostarek.cz" class="rich-link">
-              info@pianostarek.cz
-            </a>
+              info@pianostarek.cz</a>
           </p>
           <hr class="__separator separator-heading" />
         </div>

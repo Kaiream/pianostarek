@@ -23,10 +23,10 @@ const { title="Showroom", description="Přijdtě se podívat do našeho nového 
     </Hero>
 
     <!-- SHOWROOM INTRO -->
-    <section class="section-showroom-intro">
+    <section class="section-showroom-intro" role="region" aria-label="Úvod showroomu">
       <h2 class="heading-2">Showroom Praha</h2>
-      <div class="showroom-intro-container">
-        <div class="showroom-left">
+      <div class="showroom-intro-container" aria-label="Úvod showroomu">
+        <div class="showroom-left" aria-label="Obrázek showroomu">
           <Image
           src={showroom}
           class="__image showroom-image"
@@ -38,70 +38,42 @@ const { title="Showroom", description="Přijdtě se podívat do našeho nového 
           loading="eager"/>
         </div>
 
-        <article class="showroom-right">
-          <div class="showroom-top">
+        <article class="showroom-right" aria-label="Prohlídka showroomu">
+          <div class="showroom-top" aria-label="Otevírací doby showroomu">
             <span class="showroom-opening-hours">Otevírací doby</span>
-            <ul class="__list day-list">
+            <ul class="__list day-list" aria-label="List dob">
               <li class="day-opening-hours">
-                <span>
-                  Pondělí
-                </span>
-                <span>
-                  08:00 - 20:00
-                </span>
+                <span>Pondělí</span>
+                <span>08:00 - 20:00</span>
               </li>
               <li class="day-opening-hours">
-                <span>
-                  Úterý
-                </span>
-                <span>
-                  08:00 - 20:00
-                </span>
+                <span>Úterý</span>
+                <span>08:00 - 20:00</span>
               </li>
               <li class="day-opening-hours">
-                <span>
-                  Středa
-                </span>
-                <span>
-                  08:00 - 20:00
-                </span>
+                <span>Středa</span>
+                <span>08:00 - 20:00</span>
               </li>
               <li class="day-opening-hours">
-                <span>
-                  Čtvrtek
-                </span>
-                <span>
-                  08:00 - 20:00
-                </span>
+                <span>Čtvrtek</span>
+                <span>08:00 - 20:00</span>
               </li>
               <li class="day-opening-hours">
-                <span>
-                  Pátek
-                </span>
-                <span>
-                  08:00 - 20:00
-                </span>
+                <span>Pátek</span>
+                <span>08:00 - 20:00</span>
               </li>
               <li class="day-opening-hours">
-                <span>
-                  Sobota
-                </span>
-                <span>
-                  08:00 - 20:00
-                </span>
+                <span>Sobota</span>
+                <span>08:00 - 20:00</span>
               </li>
               <li class="day-opening-hours">
-                <span>
-                  Neděle
-                </span>
-                <span>
-                  08:00 - 20:00
-                </span>
+                <span>Neděle</span>
+                <span>08:00 - 20:00</span>
               </li>
             </ul>
           </div>
-          <div class="showroom-bottom">
-            <p class="__paragraph visit-text">
+          <div class="showroom-bottom" aria-label="Prohlídka showroomu">
+            <p class="__paragraph visit-text" aria-label="Prohlídka showroomu">
               Prohlídka je možná po telefonické dohodě.<br />
               Tel: <a href="tel:+420774359074" class="rich-link">+420 774 359 074</a>
             </p>
@@ -111,10 +83,10 @@ const { title="Showroom", description="Přijdtě se podívat do našeho nového 
     </section>
 
     <!-- SHOWROOM MAP -->
-    <section class="section-showroom-map">
-      <div class="showroom-map-container">
-        <div class="showroom-mapbox">
-          <div class="showroom-map">
+    <section class="section-showroom-map" role="region" aria-label="Mapa showroomu">
+      <div class="showroom-map-container" aria-label="Mapa showroomu">
+        <div class="showroom-mapbox" aria-label="Mapa showroomu">
+          <div class="showroom-map" aria-label="Mapa showroomu">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2560.4300933954073!2d14.4527975!3d50.0782339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b9538fa469ed3%3A0x583545ffa4a106e7!2sPIANOSTAREK!5e0!3m2!1sen!2scz!4v1739820570748!5m2!1sen!2scz"
               width="100%"
@@ -123,43 +95,33 @@ const { title="Showroom", description="Přijdtě se podívat do našeho nového 
               title="Mapa showroomu"
               allowfullscreen=""
               loading="lazy"
+              aria-label="Mapa showroomu"
               referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
         </div>
-        <article class="showroom-details">
-          <div class="showroom-top">
-            <span class="showroom-label">
-              Nový větší Showroom - Pianostarek
-            </span>
-            <p class="__paragraph">
+        <article class="showroom-details" aria-label="Detaily showroomu">
+          <div class="showroom-top" aria-label="Detaily showroomu">
+            <span class="showroom-label" aria-label="Úvod showroomu">Nový větší Showroom - Pianostarek</span>
+            <p class="__paragraph" aria-label="Adresa showroomu">
               Přemyslovská 5, 130 00 Praha 3<br />
-              Česká republika
-            </p>
-            <span class="showroom-directions">
-              <b class="__paragraph">
-                Jak se k nám dostanete:
-              </b>
+              Česká republika</p>
+            <span class="showroom-directions" aria-label="Jak se k showroomu dostanete">
+              <b class="__paragraph" aria-label="Text">Jak se k nám dostanete:</b>
             </span>
-            <p class="showroom-transport">
-              Nejbližší zastávka MHD je stanice metra Jiřího z Poděbrad
-            </p>
-            <blockquote class="showroom-highlight">
-              POZOR! Showroom je ve dvoře objektu - není výloha
-            </blockquote>
-            <a href="https://maps.google.com/maps?ll=50.078234,14.452798&amp;z=16&amp;t=m&amp;hl=en&amp;gl=CZ&amp;mapclient=embed&amp;cid=6356063413384316647" target="_blank" class="button-red" style="align-self: flex-start;">
-              Zobrazit mapu
-            </a>
+            <p class="showroom-transport" aria-label="MHD">Nejbližší zastávka MHD je stanice metra Jiřího z Poděbrad</p>
+            <blockquote class="showroom-highlight" aria-label="Upozornění">POZOR! Showroom je ve dvoře objektu - není výloha</blockquote>
+            <a href="https://maps.google.com/maps?ll=50.078234,14.452798&amp;z=16&amp;t=m&amp;hl=en&amp;gl=CZ&amp;mapclient=embed&amp;cid=6356063413384316647" target="_blank" class="button-red" style="align-self: flex-start;" aria-label="Odkaz na Google Maps">Zobrazit mapu</a>
           </div>
         </article>
       </div>
     </section>
 
     <!-- SHOWROOM GALLERY -->
-    <section class="section-showroom-gallery">
-      <div class="showroom-gallery-container">
+    <section class="section-showroom-gallery" role="region" aria-label="Galerie showroomu">
+      <div class="showroom-gallery-container" aria-label="Galerie showroomu">
         <h2 class="heading-2">Galerie</h2>
-        <div class="showroom-gallery">
+        <div class="showroom-gallery" aria-label="Obrázková galerie showroomu">
           {galleryImages.map((image: GalleryImage, index: number) => (
             <Image
               src={image.src}

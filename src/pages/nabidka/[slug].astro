@@ -49,7 +49,7 @@ const relatedProducts = productDatabase
 
 <ProductPage frontmatter={product.data} backPath="/nabidka" backText="Zpět na nabídku">
 
-  <a href="/kontakt#contact" class="_button button-red" slot="cta">MÁM ZÁJEM</a>
+  <a href="/kontakt#contact" class="_button button-red" slot="cta" aria-label="Odkaz na stránku kontakty v případě zájmu">MÁM ZÁJEM</a>
 
   <Content slot="content"/>
 
@@ -64,10 +64,11 @@ const relatedProducts = productDatabase
             <a
             href={`/nabidka/${generateSlug(product.data.model, product.data.id)}`}
             class="product-card"
+            aria-label="Interaktivní karta produktu"
             data-id={product.data.id}
             data-price={product.data.price}
             data-categories={catConcat(product.data)}>
-              <figure class="product-body">
+              <figure class="product-body" aria-label="Karta produktu s obrázkem, názvem a cenou">
                 <Image
                   src={product.data.coverImage.src}
                   alt={product.data.coverImage.alt || `Doprovázející obrázek produktu ${product.data.model}`}
@@ -76,11 +77,11 @@ const relatedProducts = productDatabase
                   format="webp"
                   loading="lazy"
                 />
-                <figcaption class="product-description">
-                  <span class="product-name">
+                <figcaption class="product-description" aria-label="Popis produktu">
+                  <span class="product-name" aria-label="Název produktu">
                     {product.data.model}
                   </span>
-                  <span class="product-price">
+                  <span class="product-price" aria-label="Cena produktu">
                     {formatPrice(product.data.price)}
                   </span>
                 </figcaption>

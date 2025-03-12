@@ -22,23 +22,21 @@ const { title="Kontakt", description="Máte rozhodnuto? Chcete sjednat nezávisl
     
 
     <!-- SHOPS -->
-    <section class="section-shops">
-      <div class="shops-container">
-        <div class="shops-left">
-          <div class="shops">
-            <div class="shop">
-              <h2 class="heading-3">Sídlo firmy</h2>
-              <p class="paraddress">
+    <section class="section-shops" role="region" aria-label="Sekce provozoven">
+      <div class="shops-container" aria-label="Provozovny">
+        <div class="shops-left" aria-label="Levý text">
+          <div class="shops" aria-label="Adresy provozoven">
+            <div class="shop" aria-label="Provozovna Litvínov">
+              <h2 class="heading-3" aria-label="Sídlo firmy">Sídlo firmy</h2>
+              <p class="paraddress" aria-label="Adresa sídla firmy">
                 Podkrušnohorská<br />
-                2058, 436 01, Litvínov
-              </p>
+                2058, 436 01, Litvínov</p>
             </div>
-            <div class="shop">
-              <h2 class="heading-3">Showroom</h2>
-              <p class="paraddress">
+            <div class="shop" aria-label="Showroom">
+              <h2 class="heading-3" aria-label="Showroom">Showroom</h2>
+              <p class="paraddress" aria-label="Adresa showroomu">
                 Přemyslovská 5,<br />
-                130 00 Praha 3
-              </p>
+                130 00 Praha 3</p>
             </div>
           </div>
           <Image
@@ -54,26 +52,21 @@ const { title="Kontakt", description="Máte rozhodnuto? Chcete sjednat nezávisl
         </div>
 
         <!-- CONTACT INFO -->
-        <div class="shops-right">
-          <h2 class="heading-3">Kontaktní údaje</h2>
-          <p class="paracontact">
-            Tel:
-            <a href="tel:+420774359074" class="rich-link">
-              +420 774 359 074
-            </a><br />
-            Mail:
-            <a href="mailto:info@pianostarek.cz" class="rich-link">
-              info@pianostarek.cz
-            </a><br />
+        <div class="shops-right" aria-label="Kontaktní údaje">
+          <h2 class="heading-3" aria-label="Kontaktní údaje">Kontaktní údaje</h2>
+          <p class="paracontact" aria-label="Telefoní číslo a email">
+            Tel:<a href="tel:+420774359074" class="rich-link">
+              +420 774 359 074</a><br />
+            Mail:<a href="mailto:info@pianostarek.cz" class="rich-link">
+              info@pianostarek.cz</a><br />
             Web:
             <a href="https://www.pianostarek.cz/" class="rich-link">
-              www.pianostarek.cz
-            </a>
+              www.pianostarek.cz</a>
           </p>
 
           <!-- SOCIALS -->
-          <div class="contact-socials">
-            <a target="_blank" href="https://www.facebook.com/pages/wwwpianostarekcz/109704172392121" class="social-link">
+          <div class="contact-socials" aria-label="Sociální sítě">
+            <a target="_blank" href="https://www.facebook.com/pages/wwwpianostarekcz/109704172392121" class="social-link" aria-label="Odkaz na naší stránku na Facebooku">
               <Image
               src={`${import.meta.env.BASE_URL}images/facebook-logo.webp`}
               alt="Facebook logo"
@@ -84,7 +77,7 @@ const { title="Kontakt", description="Máte rozhodnuto? Chcete sjednat nezávisl
               loading="eager"
               />
             </a>
-            <a target="_blank" href="https://www.instagram.com/pianostarek.cz/" class="social-link">
+            <a target="_blank" href="https://www.instagram.com/pianostarek.cz/" class="social-link" aria-label="Odkaz na naší stránku na Instagramu">
               <Image
               src={`${import.meta.env.BASE_URL}images/instagram-logo.webp`}
               alt="Instagram logo"
@@ -95,7 +88,7 @@ const { title="Kontakt", description="Máte rozhodnuto? Chcete sjednat nezávisl
               loading="eager"
               />
             </a>
-            <a target="_blank" href="https://www.youtube.com/@pianostarek" class="social-link">
+            <a target="_blank" href="https://www.youtube.com/@pianostarek" class="social-link" aria-label="Odkaz na naší stránku na YouTubu">
               <Image
               src={`${import.meta.env.BASE_URL}images/youtube-logo.webp`}
               alt="Youtube logo"
@@ -112,58 +105,48 @@ const { title="Kontakt", description="Máte rozhodnuto? Chcete sjednat nezávisl
     </section>
 
     <!-- DETAILS -->
-    <section class="section-details">
-      <article class="details-container">
-        <h3 class="heading-3">Dodatečné informace</h3>
-        <div class="details-body">
+    <section class="section-details" role="region" aria-label="Dodatečné informace">
+      <article class="details-container" aria-label="Dodatečné informace">
+        <h3 class="heading-3" aria-label="Dodatečné informace">Dodatečné informace</h3>
+        <div class="details-body" aria-label="Detaily">
 
           <!-- LEFT -->
-          <div class="details-left">
+          <div class="details-left" aria-label="Prodejní sklad Litvínov">
             <span class="detail-heading">Prodejní sklad Litvínov</span>
             <p class="__paragraph">
               Lze navštívit po telefonické dohodě.<br />
-              Od 8.00 do 20.00 hodin.
-            </p>
-            <span class="__paragraph front-text">
-              <b>
-                Další užitečné informace:
-              </b>
+              Od 8.00 do 20.00 hodin.</p>
+            <span class="__paragraph front-text" aria-label="Další užitečné informace">
+              <b>Další užitečné informace:</b>
             </span>
-            <p class="__paragraph bottom-text">
+            <p class="__paragraph bottom-text" aria-label="Otevírací doba">
               My nezavíráme!<br />
               Přijďte si vybrat Vaše vysněné pianino nebo klavír.<br />
-              Volejte 774 35 90 74 a domluvte si prohlídku.
-            </p>
+              Volejte 774 35 90 74 a domluvte si prohlídku.</p>
           </div>
 
           <!-- RIGHT -->
-          <div class="details-right">
-            <span class="detail-heading">
-              Provozovatel fimy
+          <div class="details-right" aria-label="Provozovatel firmy">
+            <span class="detail-heading" aria-label="Provozovatel firmy">Provozovatel fimy</span>
+            <span class="__paragraph top-text" aria-label="Jméno provozovatele">
+              <b>Vlastislav Stárek</b>
             </span>
-            <span class="__paragraph top-text">
-              <b>
-                Vlastislav Stárek
-              </b>
-            </span>
-            <p class="__paragraph bottom-text">
+            <p class="__paragraph bottom-text" aria-label="Adresa sídla firmy">
               Podkrušnohorská 2058<br />
               436 01 Litvínov<br />
-              Česká republika
-            </p>
-            <p class="left-aligned">
+              Česká republika</p>
+            <p class="left-aligned" aria-label="Citát">
               „Pokud nechcete vycházet z tepla domova, vyberte si nástroj na našich stránkách a zavolejte nám.<br />
-              O vše se postaráme.”
-            </p>
+              O vše se postaráme.”</p>
           </div>
         </div>
       </article>
     </section>
 
     <!-- CONTACT FORM -->
-    <section class="section-form" id="contact">
-      <div class="form-container">
-        <div class="form-image">
+    <section class="section-form" id="contact" role="region" aria-label="Kontaktní formulář">
+      <div class="form-container" aria-label="Kontaktní formulář">
+        <div class="form-image" aria-label="Mozart nakupuje u nás">
           <Image
           src={`${import.meta.env.BASE_URL}images/kontakt-form.webp`}
           alt="Mozart nakupuje u nás"

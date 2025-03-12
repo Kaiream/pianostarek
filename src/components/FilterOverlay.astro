@@ -3,8 +3,8 @@ import { categories, type FilterCategory } from '../content/categories';
 ---
 
 <!-- FILTER OVERLAY -->
-<div class="overlay-filter">
-  <div role="dialog" class="filter-overlay-content">
+<div class="overlay-filter" aria-modal="true" tabindex="-1" aria-label="Filtrovací overlay na mobilním zařízení">
+  <div role="dialog" class="filter-overlay-content" aria-label="Filter mobilním zařízení">
 
     <!-- FILTRATION PROTOCOL MOBILE -->
     <div class="filtration-protocol-mobile">
@@ -19,13 +19,13 @@ import { categories, type FilterCategory } from '../content/categories';
           <div class="filter-reset" title="Resetovat filtry">
             <a href="/nabidka" aria-label="Anulace filtrů">
               <div class="reset-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" aria-label="Ikona resetu filtrů">
                   <path fill="currentColor" d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2v2a8 8 0 1 0 5.135 1.865L15 8V2h6l-2.447 2.447A9.98 9.98 0 0 1 22 12" />
                 </svg>
               </div>
             </a>
           </div>
-          <button type="button" class="close-button" title="Zavřít okno" aria-label="Zavřít filtrový panel">
+          <button type="button" class="close-button" title="Zavřít okno" aria-label="Zavřít filtrový panel" aria-label="Ikona zavření filtrového panelu" tabindex="0">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" width="100%" height="100%">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M12.5 3 3 12.5M3 3l9.5 9.5"></path>
             </svg>
@@ -34,35 +34,29 @@ import { categories, type FilterCategory } from '../content/categories';
       </div>
 
       <!-- PRICE FILTERS -->
-      <div class="filter-container">
-        <div class="filter-price">
-          <span class="filter-label">
-            Cena
-          </span>
-          <article class="price-range">
-            <input placeholder="Od" id="od" class="__text-input price-from" type="number" name="od" />
+      <div class="filter-container" aria-label="Filtry">
+        <div class="filter-price" aria-label="Cenový filtr">
+          <span class="filter-label" aria-label="Cena">Cena</span>
+          <article class="price-range" aria-label="Cenové rozpětí">
+            <input placeholder="Od" id="od" class="__text-input price-from" type="number" name="od" aria-label="Cenové rozpětí do" />
             <span class="price-range-separator">
               -
             </span>
-            <input placeholder="Do" id="do" class="__text-input price-to" type="number" name="do" />
+            <input placeholder="Do" id="do" class="__text-input price-to" type="number" name="do" aria-label="Cenové rozpětí od" />
           </article>
         </div>
 
         <!-- CATEGORY FILTERS -->
-        <div class="filter-by-category">
-          <span class="filter-label">Kategorie</span>
+        <div class="filter-by-category" aria-label="Kategorické filtry">
+          <span class="filter-label" aria-label="Text">Kategorie</span>
           {categories.map((category: FilterCategory) => (
-            <div class="filter-body">
-              <button type="button" class="__button collapse-button">
-                {category.categoryName}
-              </button>
-              <div class="collapse-body">
+            <div class="filter-body" aria-label={category.categoryName}>
+              <button type="button" class="__button collapse-button" aria-label="Rozbalovací tlačítko kategorie">{category.categoryName}</button>
+              <div class="collapse-body" aria-label="Tělo rozbalovacího talčítka">
                 {category.options.map(option => (
                   <label class="checkbox-label">
                     <input class="__checkbox" type="checkbox" />
-                    <span>
-                      {option.label}
-                    </span>
+                    <span>{option.label}</span>
                   </label>
                 ))}
               </div>

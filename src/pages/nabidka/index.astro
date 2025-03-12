@@ -33,8 +33,8 @@ const searchQuery = Astro.url.searchParams.get("vyhledat") || '';
     </Hero>
 
     <!-- AVAILABLE PRODUCTS -->
-    <section class="section-product-display">
-      <div class="product-display-container">
+    <section class="section-product-display" role="region" aria-label="Nabídka nástrojů">
+      <div class="product-display-container" aria-label="Katalog produktů">
 
         <FiltrationProtocol />
 
@@ -81,10 +81,11 @@ const searchQuery = Astro.url.searchParams.get("vyhledat") || '';
                   <a
                   href={`/nabidka/${generateSlug(product.data.model, product.data.id)}`}
                   class="product-card"
+                  aria-label="Interaktivní karta produktu"
                   data-id={product.data.id}
                   data-price={product.data.price}
                   data-categories={catConcat(product.data)}>
-                    <figure class="product-body-mini">
+                    <figure class="product-body-mini" aria-label="Karta produktu s obrázkem, názvem a cenou">
                       <Image
                         src={product.data.coverImage.src}
                         alt={product.data.coverImage.alt || `Doprovázející obrázek produktu ${product.data.model}`}
@@ -93,11 +94,11 @@ const searchQuery = Astro.url.searchParams.get("vyhledat") || '';
                         format="webp"
                         loading="lazy"
                       />
-                      <figcaption class="product-description">
-                        <span class="product-name">
+                      <figcaption class="product-description" aria-label="Popis produktu">
+                        <span class="product-name" aria-label="Název produktu">
                           {product.data.model}
                         </span>
-                        <span class="product-price">
+                        <span class="product-price" aria-label="Cena produktu">
                           {formatPrice(product.data.price)}
                         </span>
                       </figcaption>

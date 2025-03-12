@@ -55,12 +55,12 @@ export async function getStaticPaths() {
       backgroundImage={hero}>
     </Hero>
 
-    <section class="section-archive">
-      <div class="archive-container">
-        <div class="sold-items">
-          <div class="archive-search">
-            <div class="archive-search-sort">
-              <input placeholder="Vyhledat v archívu..." id="vyhledat" class="__text-input search-field" type="search" name="vyhledat" />
+    <section class="section-archive" role="region" aria-label="Archív prodaných nástrojů">
+      <div class="archive-container" aria-label="Katalog archivovaných produktů">
+        <div class="sold-items" aria-label="Prodané produkty">
+          <div class="archive-search" aria-label="Vyhledávání a řazení v archívu">
+            <div class="archive-search-sort" aria-label="Vyhledávání">
+              <input placeholder="Vyhledat v archívu..." id="vyhledat" class="__text-input search-field" type="search" name="vyhledat" aria-label="Vyhledávácí pole" />
             </div>
             <select class="__select sold-sort" aria-label="Seřazení produktů">
               <!-- 
@@ -85,20 +85,21 @@ export async function getStaticPaths() {
               <div class="sold-product-cards">
                 {currentProducts.map((product) => (
                   <a href={`/archiv/${generateSlug(product.data.model, product.data.id)}`} class="product-card" data-id={product.data.id}>
-                    <figure class="product-body-mini">
+                    <figure class="product-body-mini" aria-label="Karta produktu s obrázkem, názvem a cenou">
                       <Image
                         src={product.data.coverImage.src}
                         alt={product.data.coverImage.alt || `Doprovázející obrázek produktu ${product.data.model}`}
                         class="__image product-image"
+                        aria-label="Interaktivní karta produktu"
                         quality={100}
                         format="webp"
                         loading="lazy"
                       />
-                      <figcaption class="product-description">
-                        <span class="product-name">
+                      <figcaption class="product-description" aria-label="Popis produktu">
+                        <span class="product-name" aria-label="Název produktu">
                           {product.data.model}
                         </span>
-                        <span class="product-price">
+                        <span class="product-price" aria-label="Cena produktu">
                           {formatPrice(product.data.price)}
                         </span>
                       </figcaption>

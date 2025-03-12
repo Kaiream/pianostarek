@@ -3,63 +3,35 @@ import { Image } from 'astro:assets';
 ---
 
 <!-- FOOTER -->
-<footer class="footer" role="contentinfo">
-  <section class="section-footer">
-    <div class="footer-kategorie">
-      <span class="footer-heading">
-        Kategorie
-      </span>
+<footer class="footer" role="contentinfo" aria-label="Patička">
+  <section class="section-footer" role="group" aria-label="Patička webu">
+    <div class="footer-kategorie" aria-label="Kategorie produktů">
+      <span class="footer-heading" aria-label="Kategorie">Kategorie</span>
       <hr class="__separator separator-footer" />
-      <div class="footer-links" aria-label="Kategorie produktů">
-        <a href="/nabidka" class="footer-link">
-          Křídla
-        </a>
-        <a href="/nabidka" class="footer-link">
-          Pianina
-        </a>
-        <a href="/nabidka" class="footer-link">
-          Renovované
-        </a>
-        <a href="/nabidka" class="footer-link">
-          Nové
-        </a>
-        <a href="/nabidka" class="footer-link">
-          Značky
-        </a>
+      <div class="footer-links" aria-label="List kategorií">
+        <a href="/nabidka" class="footer-link">Křídla</a>
+        <a href="/nabidka" class="footer-link">Pianina</a>
+        <a href="/nabidka" class="footer-link">Renovované</a>
+        <a href="/nabidka" class="footer-link">Nové</a>
+        <a href="/nabidka" class="footer-link">Značky</a>
       </div>
     </div>
-    <div class="footer-navigace">
-      <span class="footer-heading">
-        Navigace
-      </span>
+    <div class="footer-navigace" role="navigation" aria-label="Navigace v patičce">
+      <span class="footer-heading" aria-label="Navigace">Navigace</span>
       <hr class="__separator separator-footer" />
-      <div class="footer-links" aria-label="Footer navigace">
-        <a href="/" class="footer-link">
-          Domů
-        </a>
-        <a href="/nabidka" class="footer-link">
-          Nabídka
-        </a>
-        <a href="/archiv/1" class="footer-link">
-          Archív
-        </a>
-        <a href="/sluzby" class="footer-link">
-          Služby
-        </a>
-        <a href="/kontakt" class="footer-link">
-          Kontakt
-        </a>
-        <a href="/showroom" class="footer-link">
-          Showroom
-        </a>
+      <div class="footer-links" aria-label="Navigační menu">
+        <a href="/" class="footer-link">Domů</a>
+        <a href="/nabidka" class="footer-link">Nabídka</a>
+        <a href="/archiv/1" class="footer-link">Archív</a>
+        <a href="/sluzby" class="footer-link">Služby</a>
+        <a href="/kontakt" class="footer-link">Kontakt</a>
+        <a href="/showroom" class="footer-link">Showroom</a>
       </div>
     </div>
-    <div class="footer-sledovat">
-      <span class="footer-heading follow-us">
-        Sledujte nás
-      </span>
-      <div class="footer-socials" aria-label="Sociální média">
-        <a href="https://www.facebook.com/pages/wwwpianostarekcz/109704172392121" target="_blank" class="social-link">
+    <div class="footer-sledovat" role="complementary" aria-label="Sociální média">
+      <span class="footer-heading follow-us" aria-label="Sledujte nás">Sledujte nás</span>
+      <div class="footer-socials" aria-label="List sociílních médií">
+        <a href="https://www.facebook.com/pages/wwwpianostarekcz/109704172392121" target="_blank" class="social-link" aria-label="Odkaz na naší stránků na Facebooku">
           <Image
           src={`${import.meta.env.BASE_URL}images/facebook-logo.webp`}
           alt="Facebook logo"
@@ -70,7 +42,7 @@ import { Image } from 'astro:assets';
           loading="lazy"
           />
         </a>
-        <a href="https://www.instagram.com/pianostarek.cz/" target="_blank" class="social-link">
+        <a href="https://www.instagram.com/pianostarek.cz/" target="_blank" class="social-link" aria-label="Odkaz na naší stránků na Instagramu">
           <Image
           src={`${import.meta.env.BASE_URL}images/instagram-logo.webp`}
           alt="Instagram logo"
@@ -81,7 +53,7 @@ import { Image } from 'astro:assets';
           loading="lazy"
           />
         </a>
-        <a href="https://www.youtube.com/@pianostarek" target="_blank"  class="social-link">
+        <a href="https://www.youtube.com/@pianostarek" target="_blank"  class="social-link" aria-label="Odkaz na naší stránků na YouTubu">
           <Image
           src={`${import.meta.env.BASE_URL}images/youtube-logo.webp`}
           alt="Youtube logo"
@@ -93,7 +65,7 @@ import { Image } from 'astro:assets';
           />
         </a>
       </div>
-      <a href="/" class="footer-logo-big">
+      <a href="/" class="footer-logo-big" aria-label="Logo společnosti">
         <Image
         src={`${import.meta.env.BASE_URL}images/logo.webp`}
         alt="Piano Stárek logo"
@@ -105,48 +77,43 @@ import { Image } from 'astro:assets';
         loading="lazy"
         />
       </a>
-      <div class="copyright">© 2025 Piano Stárek</div>
+      <div class="copyright" aria-label="Copyright">© 2025 Piano Stárek</div>
     </div>
-    <div class="footer-najit">
-      <span class="footer-heading">Kde nás najdete</span>
+    <div class="footer-najit" role="complementary" aria-label="Adresy provozoven">
+      <span class="footer-heading" aria-label="Kde nás najdete">Kde nás najdete</span>
       <hr class="__separator separator-footer" />
       <div class="footer-info-box" aria-label="Lokace provozoven">
-        <p class="parafooter">
+        <p class="parafooter" aria-label="Adresa showroomu">
           <b class="__bold">
           Showroom:</b><br />
           Přemyslovská 5,<br />
-          130 00 Praha 3
-        </p>
-        <p class="parafooter">
+          130 00 Praha 3</p>
+        <p class="parafooter" aria-label="Adresa sídla firmy">
           <b class="__bold">
           Sídlo firmy:</b><br />
           Podkrušnohorská<br />
-          2058, 436 01, Litvínov
-        </p>
+          2058, 436 01, Litvínov</p>
       </div>
     </div>
-    <div class="footer-kontakt">
-      <span class="footer-heading">Kontakt</span>
+    <div class="footer-kontakt" role="contentinfo" aria-label="Kontaktní informace">
+      <span class="footer-heading" aria-label="Kontakt">Kontakt</span>
       <hr class="__separator separator-footer" />
       <div class="footer-info-box" aria-label="Kontaktní informace">
-        <p class="parafooter">
+        <p class="parafooter" aria-label="Telefoní číslo a e-mail">
           Tel:
           <a href="tel:+420774359074" class="rich-link">
-            +420 774 359 074
-          </a><br />
+            +420 774 359 074</a><br />
           Mail:
           <a href="mailto:info@pianostarek.cz" class="rich-link">
-            info@pianostarek.cz
-          </a><br />
+            info@pianostarek.cz</a><br />
           Web:
           <a href="https://www.pianostarek.cz/" target="_blank" class="rich-link">
-            www.pianostarek.cz
-          </a>
+            www.pianostarek.cz</a>
         </p>
       </div>
     </div>
   </section>
-  <small class="bp">
+  <small class="bp" aria-label="Bakalářská práce">
     Bakalářská práce<br />
     Karim Boufala
   </small>

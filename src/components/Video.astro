@@ -7,11 +7,13 @@ interface Props {
 const { videoId, title } = Astro.props;
 ---
 
-<div class="video-container" data-video-id={videoId}>
+<div class="video-container" data-video-id={videoId} aria-label="Video služby">
   <lite-youtube 
     videoid={videoId}
     playlabel={title}
     params="controls=1&modestbranding=1"
+    aria-label="Video služby"
+    aria-controls="play-button"
   ></lite-youtube>
 </div>
 

@@ -3,8 +3,8 @@ const { backPath, backText } = Astro.props;
 ---
 
 <!-- BREADCRUMB -->
-<section class="section-hero-empty">
-  <div class="container-breadcrumb">
-    <a href={backPath} class="breadcrumb">&lt; {backText}</a>
+<section class="section-hero-empty" role="navigation" aria-label="Drobečková navigace">
+  <div class="container-breadcrumb" aria-label="Odkaz">
+    <a href={backPath} class="breadcrumb" aria-label=`${backText}`>&lt; {backText}</a>
   </div>
 </section>
