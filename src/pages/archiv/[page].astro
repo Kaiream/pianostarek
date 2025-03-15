@@ -12,7 +12,7 @@ import Pagination from "../../components/Pagination.astro";
 
 const { title="Archív", description="Prohlédněte si nástroje s novými spokojenými zákazníky." } = Astro.props;
 
-// db pull
+// DB pull
 const productDatabase = await getCollection("archiv");
 
 // Pagination start

@@ -3,11 +3,13 @@ import { config, fields, collection } from '@keystatic/core';
 let storedID: string;
 let slug: string = '';
 
+// Generate unique ID for each product
 function generateUniqueId() {
   return Math.floor(Date.now() / 1000).toString();
 }
 
 storedID = generateUniqueId();
+
 
 export default config({
   storage: {
@@ -18,7 +20,9 @@ export default config({
     }
   },
 
+  // COLLECTION DEFINITIONS
   collections: {
+    // Nabídka
     nabidka: collection({
       label: 'Nabídka',
       path: 'src/content/nabidka/*',
@@ -159,6 +163,7 @@ export default config({
         }),
       },
     }),
+    // Archív
     archiv: collection({
       label: 'Archív',
       path: 'src/content/archiv/*',

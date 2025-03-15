@@ -1,26 +1,5 @@
 // This script handles the contact form submission and notification system.
 // It manages form submission, validation, and user feedback through notifications.
-//
-// Key functionality:
-// 1. Handles form submission and API interaction
-//    - Prevents default form submission
-//    - Collects and validates form data
-//    - Submits data to contact API endpoint
-//    - Manages button state during submission
-//
-// 2. Provides notification system
-//    - Shows success/error messages
-//    - Animates notifications in/out
-//    - Auto-removes notifications after delay
-//    - Prevents notification stacking
-//
-// DOM Elements:
-// - Contact form: #contactForm
-// - Submit button: button[type="submit"]
-// - Notification container: .notification
-//
-// The script provides immediate feedback on form submission
-// while maintaining a smooth user experience.
 
 function showNotification(message, type = "success") {
   // Remove existing notification if any

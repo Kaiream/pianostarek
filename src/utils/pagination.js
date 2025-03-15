@@ -1,20 +1,6 @@
 // This script handles the pagination range calculation functionality.
 // It generates a smart page range for navigation that includes ellipsis for large ranges.
 //
-// Key functionality:
-// 1. Generates page numbers array based on current page and total pages
-// 2. Handles different pagination scenarios:
-//    - Small page ranges (3 or fewer pages)
-//    - Near start of range (first few pages)
-//    - Near end of range (last few pages)
-//    - Middle of range (shows current page context)
-// 3. Adds ellipsis (...) when skipping page numbers
-// 4. Always shows first and last page numbers
-//
-// Parameters:
-// - current: The currently active page number
-// - total: The total number of pages available
-//
 // Returns an array containing page numbers and ellipsis strings
 // that create an intuitive pagination navigation interface.
 

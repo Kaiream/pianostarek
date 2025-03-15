@@ -1,17 +1,6 @@
 // This script handles the search functionality in the navigation bar.
 // It implements a toggle behavior for the search field when the search icon is clicked.
 //
-// Key functionality:
-// 1. Monitors clicks on the search icon (.nav-search-icon .search-icon)
-// 2. Controls visibility of the search form (.nav-search-field)
-// 3. Toggles between showing and hiding the search field
-//
-// Show/Hide behavior:
-// - When search icon is clicked and field is hidden:
-//   * Makes the search field visible by setting display to "block"
-// - When search icon is clicked and field is visible:
-//   * Hides the search field by setting display to "none"
-//
 // This script is only step one of two when performing the navigation search functionality.
 // The second step is handling the inserted search term in the URL and subsequently searching through the catalog.
 // See product-filter.js in /scripts for more information about what happens when we submit a value.

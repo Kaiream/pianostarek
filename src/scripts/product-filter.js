@@ -1,29 +1,12 @@
 // This script handles category-based filtering functionality.
 // It filters products based on categories, search terms, and price range.
 //
-// Key functionality:
-// 1. Real-time filtering as user changes inputs
-// 2. Combines three filter types:
-//    - Category checkboxes
-//    - Text search (supports multiple words)
-//    - Price range
-// 3. Updates product count display
-//
-// DOM Elements:
-// - Products: .product-card
-// - Search input: #vyhledat
-// - Price inputs: #od, #do
-// - Category checkboxes: .filter-by-category input.__checkbox
-//
 // The script provides immediate feedback as search terms, price ranges or category checkboxes are adjusted
 // This script is part two of the nav search functionality,
 // but it also focuses on all the other filtering shenanigans.
 
 
 document.addEventListener("DOMContentLoaded", function() {
-  // Get search query from URL, decode it and store in the searchQuery variable for later use
-  const searchQuery = new URLSearchParams(window.location.search).get("vyhledat");
-
   const productCards = document.querySelectorAll(".product-card");
   const searchInput = document.getElementById("vyhledat");
   const priceFromInput = document.querySelectorAll(".price-from");
@@ -106,17 +89,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Update the product count display with the number of visible products
     updateProductCount(visibleCount);
-  }
-
-  // If the search query exists, instantly filter the products
-  if (searchQuery) {
-    // Set initial search value from the URL if it exists
-    searchInput.value = searchQuery;
-    // And then call the filterProducts function to filter the products based on the search query in the URL
-    applyFilters();
-  } else {
-    // If there is no query, just update the count with total number of products
-    updateProductCount(productCards.length);
   }
 
   // Add event listeners

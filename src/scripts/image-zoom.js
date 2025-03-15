@@ -1,17 +1,5 @@
 // This script handles the image zoom functionality for product listings.
 // It provides an interactive zoom effect when hovering over the main product image.
-//
-// Key functionality:
-// 1. Tracks mouse position over the main image
-// 2. Calculates zoom origin based on cursor location
-// 3. Applies smooth zoom transform when hovering
-// 4. Resets image on mouse leave
-//
-// DOM Elements:
-// - Main image: .listing-main-image (the zoomable product image)
-//
-// The script creates a magnification effect that follows the cursor,
-// allowing users to inspect product details more closely.
 
 document.addEventListener("DOMContentLoaded", () => {
     const mainImage = document.querySelector(".listing-main-image");

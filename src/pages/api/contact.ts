@@ -1,5 +1,3 @@
-// Contact Form API Endpoint
-//
 // This endpoint handles POST requests for the contact form submissions.
 // It validates the incoming data and stores it in a Turso database.
 //

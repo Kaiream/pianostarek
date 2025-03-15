@@ -762,6 +762,7 @@ html {
   font-size: var(--font-size-3);
   font-weight: 500;
   text-decoration: none;
+  text-align: center;
   background-color: var(--red-6);
   border: var(--border-size-1) solid var(--red-6);
   border-radius: var(--radius-4);

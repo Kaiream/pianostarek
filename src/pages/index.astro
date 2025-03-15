@@ -2,7 +2,6 @@
 export const prerender = true;
 
 import Hero from "../components/Hero.astro";
-import MainLayout from "../layouts/MainLayout.astro";
 import Video from "../components/Video.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 import { formatPrice } from "../utils/price-format";
@@ -19,11 +18,13 @@ import { catConcat } from "../utils/category-concatenation";
 
 const { title="Piano Stárek", description="Prodáme či koupíme piano, pianino, křídlo nebo klavír. Nabízíme nové i starší hudební nástroje po jednoduché či kompletní generální opravě. Ladění, výkup, oprava, stěhování, pronájem hudebních nástrojů." } = Astro.props;
 
-// db pull
+// DB pull
 const productDatabase = await getCollection("nabidka");
 
 // To get the newest products, we sort the database by ID first and then display only the first 3 using the slice method
 const newestProducts = productDatabase.sort((a, b) => b.data.id - a.data.id).slice(0, 3);
+
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout {title} {description}>

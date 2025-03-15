@@ -1,24 +1,5 @@
 // This script handles the sorting functionality for the product listing page.
 // It provides multiple sorting options for products based on price and ID.
-//
-// Key functionality:
-// 1. Maintains original product order for sorting
-// 2. Handles three sort directions:
-//    - Newest first (descending by ID)
-//    - Cheapest first (ascending by price)
-//    - Most expensive first (descending by price)
-// 3. Handles special price cases:
-//    - Products with price < 1 are sorted last
-//    - Equal invalid prices maintain relative order
-// 4. Performs initial sort on page load
-// 5. Updates sort order in real-time
-//
-// DOM Elements:
-// - Sort select: .offer-sort
-// - Product container: .product-cards
-//
-// The script provides immediate feedback as sort options change,
-// maintaining a responsive and interactive sorting experience.
 
 document.addEventListener("DOMContentLoaded", function() {
   const sortSelect = document.querySelector(".offer-sort");
